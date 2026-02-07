@@ -6,6 +6,7 @@ resource "aws_key_pair" "deployer" {
 resource "aws_security_group" "api" {
   name        = "ownvsrent-api-sg"
   description = "Security group for ownvsrent API server"
+  vpc_id      = "vpc-05216d3412fbd958f"
 
   ingress {
     from_port   = 22
@@ -47,13 +48,14 @@ resource "aws_instance" "api" {
   ami           = data.aws_ami.amazon_linux_2023.id
   instance_type = var.ec2_instance_type
   key_name      = aws_key_pair.deployer.key_name
+  subnet_id     = "subnet-0f7d04f9fa0546243"
 
   vpc_security_group_ids = [aws_security_group.api.id]
 
   user_data = file("${path.module}/scripts/user_data.sh")
 
   root_block_device {
-    volume_size = 20
+    volume_size = 30
     volume_type = "gp3"
   }
 
