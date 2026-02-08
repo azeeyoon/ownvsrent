@@ -105,6 +105,7 @@ class CalculatorResults(BaseModel):
     yearly_snapshots: list[YearlySnapshot]
     monthly_rent: float
     monthly_ownership_cost: float
+    monthly_mortgage_payment: float
     itemization_beneficial: bool
     pmi_removed_month: int | None
 
