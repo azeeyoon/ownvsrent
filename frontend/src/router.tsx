@@ -6,6 +6,7 @@ import { MethodologyPage } from './pages/MethodologyPage';
 import { FaqPage } from './pages/FaqPage';
 import { CityPage } from './pages/CityPage';
 import { CitiesIndexPage } from './pages/CitiesIndexPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { path: 'faq', element: <FaqPage /> },
       { path: 'cities', element: <CitiesIndexPage /> },
       { path: 'cities/:slug', element: <CityPage /> },
+      { path: 'privacy', element: <PrivacyPage /> },
     ],
   },
 ]);

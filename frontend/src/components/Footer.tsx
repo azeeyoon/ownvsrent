@@ -9,6 +9,7 @@ export function Footer() {
             <Link to="/guide" className="hover:text-gray-700">Guide</Link>
             <Link to="/methodology" className="hover:text-gray-700">Methodology</Link>
             <Link to="/faq" className="hover:text-gray-700">FAQ</Link>
+            <Link to="/privacy" className="hover:text-gray-700">Privacy</Link>
           </div>
           <p className="text-gray-400 text-sm">
             All calculations run locally. No data is stored.

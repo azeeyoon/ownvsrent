@@ -16,6 +16,7 @@ const staticPages = [
   { path: '/methodology', priority: 0.7, changefreq: 'monthly' },
   { path: '/faq', priority: 0.8, changefreq: 'monthly' },
   { path: '/cities', priority: 0.8, changefreq: 'weekly' },
+  { path: '/privacy', priority: 0.3, changefreq: 'yearly' },
 ];
 
 const cityPages = cities.map(slug => ({
