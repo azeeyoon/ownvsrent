@@ -38,6 +38,9 @@ export function Calculator() {
     ? scenario.loading[scenario.activeTab]
     : loading;
 
+  // Use scenario's applyCity when in comparison mode
+  const activeCitySelect = scenario.enabled ? scenario.applyCity : handleCitySelect;
+
   return (
     <div className="space-y-6">
       {/* Scenario Toggle */}
@@ -60,8 +63,8 @@ export function Calculator() {
           <InputPanel
             inputs={activeInputs}
             setInput={activeSetInput}
-            onCitySelect={handleCitySelect}
-            selectedCity={selectedCity}
+            onCitySelect={activeCitySelect}
+            selectedCity={scenario.enabled ? null : selectedCity}
           />
         </div>
 

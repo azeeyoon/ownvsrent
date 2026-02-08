@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { calculate, type CalculatorResults } from '../lib/api';
 import type { CalculatorInputs } from '../lib/defaults';
+import type { CityPreset } from '../data/cities';
 
 interface ScenarioState {
   a: CalculatorInputs;
@@ -21,6 +22,7 @@ interface UseScenarioCompareReturn {
     key: K,
     value: CalculatorInputs[K]
   ) => void;
+  applyCity: (city: CityPreset) => void;
   results: ScenarioResults;
   loading: { a: boolean; b: boolean };
   activeTab: 'a' | 'b';
@@ -116,11 +118,28 @@ export function useScenarioCompare(
 
   const toggle = useCallback(() => setEnabled((prev) => !prev), []);
 
+  // Apply city preset to the active scenario
+  const applyCity = useCallback((city: CityPreset) => {
+    setInputs((prev) => ({
+      ...prev,
+      [activeTab]: {
+        ...prev[activeTab],
+        monthly_rent: city.monthly_rent,
+        purchase_price: city.purchase_price,
+        property_tax_rate: city.property_tax_rate,
+        home_insurance_rate: city.home_insurance_rate,
+        hoa_monthly: city.hoa_monthly,
+        state_tax_rate: city.state_tax_rate,
+      },
+    }));
+  }, [activeTab]);
+
   return {
     enabled,
     toggle,
     inputs,
     setScenarioInput,
+    applyCity,
     results,
     loading,
     activeTab,
