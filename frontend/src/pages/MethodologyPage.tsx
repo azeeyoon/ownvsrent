@@ -1,17 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { methodologySections } from '../content/methodology-content';
-
-const sectionIcons: Record<string, string> = {
-  'overview': '🎯',
-  'renting': '🔑',
-  'buying': '🏠',
-  'taxes': '📋',
-  'wealth': '💰',
-  'sources': '📚',
-};
+import { methodologySectionsData } from '../components/content/MethodologyContent';
 
 export function MethodologyPage() {
   useEffect(() => {
@@ -23,12 +12,12 @@ export function MethodologyPage() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 text-white">
         <div className="max-w-4xl mx-auto px-6 py-16">
           <div className="flex items-center gap-2 text-sm text-emerald-300 mb-4">
-            <Link to="/" className="hover:text-white">Home</Link>
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
             <span>/</span>
             <span className="text-emerald-200">Methodology</span>
           </div>
@@ -57,24 +46,24 @@ export function MethodologyPage() {
 
       <div className="max-w-4xl mx-auto px-6 py-12">
         {/* Table of Contents */}
-        <nav className="mb-16 p-8 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border border-emerald-100">
-          <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+        <nav className="mb-12 p-6 bg-white rounded-2xl border border-gray-200 shadow-sm">
+          <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
             <svg className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
             </svg>
             What's Covered
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {methodologySections.map((section, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            {methodologySectionsData.map((section) => (
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all group"
+                className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 transition-colors group"
               >
-                <span className="flex-shrink-0 w-8 h-8 bg-white rounded-lg flex items-center justify-center text-sm shadow-sm group-hover:shadow">
-                  {sectionIcons[section.id] || (index + 1)}
+                <span className="flex-shrink-0 w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center text-sm">
+                  {section.icon}
                 </span>
-                <span className="text-gray-700 group-hover:text-gray-900 font-medium">
+                <span className="text-gray-700 group-hover:text-emerald-700 font-medium transition-colors">
                   {section.title}
                 </span>
               </a>
@@ -83,30 +72,30 @@ export function MethodologyPage() {
         </nav>
 
         {/* Key Differentiators */}
-        <div className="mb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl mb-4">
+        <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="p-5 bg-white rounded-xl border border-gray-200 shadow-sm">
+            <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-xl mb-3">
               📊
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Month-by-Month</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Month-by-Month</h3>
             <p className="text-sm text-gray-600">
               No annual shortcuts. We simulate each month individually for maximum accuracy.
             </p>
           </div>
-          <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl mb-4">
+          <div className="p-5 bg-white rounded-xl border border-gray-200 shadow-sm">
+            <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-xl mb-3">
               📋
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Real Tax Math</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Real Tax Math</h3>
             <p className="text-sm text-gray-600">
               Standard vs itemized comparison. Most calculators overstate tax benefits.
             </p>
           </div>
-          <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
-            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl mb-4">
+          <div className="p-5 bg-white rounded-xl border border-gray-200 shadow-sm">
+            <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center text-xl mb-3">
               ⚖️
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Fair Comparison</h3>
+            <h3 className="font-semibold text-gray-900 mb-1">Fair Comparison</h3>
             <p className="text-sm text-gray-600">
               Both scenarios can invest surpluses. No bias toward buying or renting.
             </p>
@@ -114,51 +103,43 @@ export function MethodologyPage() {
         </div>
 
         {/* Content Sections */}
-        <div className="space-y-20">
-          {methodologySections.map((section, index) => (
-            <section key={section.id} id={section.id} className="scroll-mt-8">
-              <div className="flex items-start gap-4 mb-6">
-                <span className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl">
-                  {sectionIcons[section.id] || (index + 1)}
-                </span>
-                <div>
-                  <span className="text-sm font-medium text-gray-400 uppercase tracking-wide">
-                    Section {index + 1}
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-                    {section.title}
-                  </h2>
+        <div className="space-y-8">
+          {methodologySectionsData.map((section, index) => {
+            const SectionComponent = section.Component;
+            return (
+              <section
+                key={section.id}
+                id={section.id}
+                className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden scroll-mt-8"
+              >
+                {/* Section Header */}
+                <div className="bg-gradient-to-r from-gray-50 to-white px-6 py-5 border-b border-gray-100">
+                  <div className="flex items-center gap-4">
+                    <span className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl">
+                      {section.icon}
+                    </span>
+                    <div>
+                      <span className="text-xs font-medium text-emerald-600 uppercase tracking-wide">
+                        Section {index + 1}
+                      </span>
+                      <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+                        {section.title}
+                      </h2>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="prose prose-lg prose-gray max-w-none
-                prose-headings:text-gray-900 prose-headings:font-bold
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-                prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3
-                prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-4
-                prose-strong:text-gray-900 prose-strong:font-semibold
-                prose-ul:text-gray-600 prose-ul:my-4 prose-li:marker:text-gray-400 prose-li:mb-2
-                prose-ol:text-gray-600 prose-ol:my-4
-                prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:bg-emerald-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:text-gray-700
-                prose-table:my-6 prose-table:w-full
-                prose-th:bg-gray-100 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-th:border prose-th:border-gray-200
-                prose-td:px-4 prose-td:py-3 prose-td:border prose-td:border-gray-200 prose-td:text-gray-600
-                prose-hr:my-8 prose-hr:border-gray-200
-                prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-emerald-700 prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-                prose-a:text-emerald-600 prose-a:no-underline hover:prose-a:underline">
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{section.content}</ReactMarkdown>
-              </div>
-
-              {index < methodologySections.length - 1 && (
-                <div className="mt-12 pt-8 border-t border-gray-100" />
-              )}
-            </section>
-          ))}
+                {/* Section Content */}
+                <div className="p-6">
+                  <SectionComponent />
+                </div>
+              </section>
+            );
+          })}
         </div>
 
         {/* CTA Section */}
-        <div className="mt-20 relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 p-8 md:p-12">
+        <div className="mt-12 relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-900 via-teal-800 to-cyan-900 p-8 md:p-12">
           <div className="absolute inset-0 bg-grid-white/5" />
           <div className="relative text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
@@ -180,10 +161,10 @@ export function MethodologyPage() {
         </div>
 
         {/* Related Links */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
           <Link
             to="/guide"
-            className="group p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+            className="group p-5 bg-white rounded-xl border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all"
           >
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">📚</span>
@@ -197,7 +178,7 @@ export function MethodologyPage() {
           </Link>
           <Link
             to="/faq"
-            className="group p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+            className="group p-5 bg-white rounded-xl border border-gray-200 hover:border-emerald-300 hover:shadow-md transition-all"
           >
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">❓</span>
