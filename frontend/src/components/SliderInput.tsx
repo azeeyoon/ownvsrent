@@ -9,6 +9,7 @@ interface SliderInputProps {
   step: number;
   format: 'currency' | 'percent' | 'years' | 'months';
   helpText?: string;
+  tooltip?: string;
 }
 
 export function SliderInput({
@@ -20,12 +21,14 @@ export function SliderInput({
   step,
   format,
   helpText,
+  tooltip,
 }: SliderInputProps) {
   const id = useId();
 
   // Local state for text input - allows free typing
   const [textValue, setTextValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Format value for display
   const formatForDisplay = (val: number): string => {
@@ -115,9 +118,34 @@ export function SliderInput({
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <label htmlFor={id} className="text-sm text-gray-600">
-          {label}
-        </label>
+        <div className="flex items-center gap-1.5">
+          <label htmlFor={id} className="text-sm text-gray-600">
+            {label}
+          </label>
+          {tooltip && (
+            <div className="relative">
+              <button
+                type="button"
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+                onMouseEnter={() => setShowTooltip(true)}
+                onMouseLeave={() => setShowTooltip(false)}
+                onClick={() => setShowTooltip(!showTooltip)}
+                aria-label={`Info about ${label}`}
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </button>
+              {showTooltip && (
+                <div className="absolute left-0 bottom-full mb-2 z-50 w-64 p-3 text-xs text-gray-700 bg-white border border-gray-200 rounded-lg shadow-lg">
+                  <div className="font-medium text-gray-900 mb-1">{label}</div>
+                  <p className="leading-relaxed">{tooltip}</p>
+                  <div className="absolute left-3 bottom-0 transform translate-y-1/2 rotate-45 w-2 h-2 bg-white border-r border-b border-gray-200"></div>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
         <input
           type="text"
           value={textValue}
