@@ -71,11 +71,11 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           format="percent"
         />
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">Loan Term</label>
+          <label className="text-sm text-gray-600">Loan Term</label>
           <select
             value={inputs.loan_term_years}
             onChange={(e) => setInput('loan_term_years', parseInt(e.target.value) as 10 | 15 | 20 | 25 | 30)}
-            className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-accent-buy"
+            className="w-full bg-gray-50 border border-gray-200 rounded-md px-3 py-2 text-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-300"
           >
             <option value={10}>10 years</option>
             <option value={15}>15 years</option>
@@ -159,11 +159,11 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
       {/* Tax & Financial Section */}
       <AccordionSection title="Tax & Financial" defaultOpen={false}>
         <div className="space-y-2">
-          <label className="text-sm font-medium text-gray-300">Filing Status</label>
+          <label className="text-sm text-gray-600">Filing Status</label>
           <select
             value={inputs.filing_status}
             onChange={(e) => setInput('filing_status', e.target.value as 'single' | 'married')}
-            className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-accent-buy"
+            className="w-full bg-gray-50 border border-gray-200 rounded-md px-3 py-2 text-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-300"
           >
             <option value="single">Single</option>
             <option value="married">Married Filing Jointly</option>

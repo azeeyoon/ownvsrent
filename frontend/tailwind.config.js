@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        // From PRD color palette
-        primary: '#1a2332',      // Deep navy
-        'accent-buy': '#d4a843', // Warm amber/gold
-        'accent-rent': '#2da88e', // Cool teal
-        warning: '#c0392b',      // Muted red
+        // Light minimal theme
+        primary: '#ffffff',
+        'accent-buy': '#059669',   // Emerald green
+        'accent-rent': '#0284c7',  // Sky blue
+        warning: '#dc2626',
       },
     },
   },

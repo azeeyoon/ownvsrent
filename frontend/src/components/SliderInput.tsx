@@ -52,14 +52,14 @@ export function SliderInput({
   return (
     <div className="space-y-2">
       <div className="flex justify-between items-center">
-        <label htmlFor={id} className="text-sm font-medium text-gray-300">
+        <label htmlFor={id} className="text-sm text-gray-600">
           {label}
         </label>
         <input
           type="text"
           value={displayValue()}
           onChange={handleTextChange}
-          className="w-24 text-right bg-gray-700 border border-gray-600 rounded px-2 py-1 text-sm text-white focus:outline-none focus:border-accent-buy"
+          className="w-24 text-right bg-gray-50 border border-gray-200 rounded-md px-2 py-1.5 text-sm text-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-300 focus:border-gray-300"
         />
       </div>
       <input
@@ -70,10 +70,10 @@ export function SliderInput({
         step={step}
         value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
-        className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-accent-buy"
+        className="w-full"
       />
       {helpText && (
-        <p className="text-xs text-gray-500">{helpText}</p>
+        <p className="text-xs text-gray-400">{helpText}</p>
       )}
     </div>
   );

@@ -10,15 +10,15 @@ export function AccordionSection({ title, defaultOpen = true, children }: Accord
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border border-gray-700 rounded-lg overflow-hidden">
+    <div className="border-b border-gray-100 last:border-b-0">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 py-3 flex justify-between items-center bg-gray-800 hover:bg-gray-750 transition-colors"
+        className="w-full py-4 flex justify-between items-center text-left hover:text-gray-600 transition-colors"
       >
-        <span className="font-medium text-white">{title}</span>
+        <span className="font-medium text-gray-800">{title}</span>
         <svg
-          className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -27,7 +27,7 @@ export function AccordionSection({ title, defaultOpen = true, children }: Accord
         </svg>
       </button>
       {isOpen && (
-        <div className="px-4 py-4 space-y-4 bg-gray-800/50">
+        <div className="pb-6 space-y-5">
           {children}
         </div>
       )}

@@ -11,62 +11,56 @@ export function VerdictCard({ results, holdingPeriod }: VerdictCardProps) {
   const isTossUp = results.verdict === 'toss-up';
   const benefit = Math.abs(results.net_benefit_at_horizon);
 
-  const bgColor = isTossUp
-    ? 'bg-gray-700'
-    : isRentWins
-    ? 'bg-accent-rent/20 border-accent-rent'
-    : 'bg-accent-buy/20 border-accent-buy';
-
-  const textColor = isTossUp
-    ? 'text-gray-300'
+  const accentColor = isTossUp
+    ? 'text-gray-600'
     : isRentWins
     ? 'text-accent-rent'
     : 'text-accent-buy';
 
   return (
-    <div className={`rounded-lg border-2 p-6 ${bgColor}`}>
+    <div className="bg-gray-50 rounded-xl p-8">
       {/* Verdict Badge */}
-      <div className="flex items-center gap-2 mb-4">
-        <span className={`text-sm font-bold uppercase tracking-wide ${textColor}`}>
+      <div className="mb-2">
+        <span className={`text-xs font-medium uppercase tracking-wider ${accentColor}`}>
           {isTossUp ? 'Too Close to Call' : isRentWins ? 'Rent Wins' : 'Buy Wins'}
         </span>
       </div>
 
       {/* Main Headline */}
-      <h2 className="text-2xl font-bold text-white mb-2">
+      <h2 className="text-3xl font-semibold text-gray-900 mb-1">
         {isTossUp ? (
           'The difference is minimal'
         ) : (
           <>
             {isRentWins ? 'Renting' : 'Buying'} saves you{' '}
-            <span className={textColor}>{formatCurrency(benefit)}</span>
+            <span className={accentColor}>{formatCurrency(benefit)}</span>
           </>
         )}
       </h2>
-      <p className="text-gray-400 mb-4">
+      <p className="text-gray-500 mb-6">
         over {holdingPeriod} {holdingPeriod === 1 ? 'year' : 'years'}
       </p>
 
       {/* Monthly Comparison */}
-      <div className="flex gap-6 text-sm mb-4">
+      <div className="flex gap-8 text-sm mb-4">
         <div>
-          <span className="text-gray-400">Monthly Rent:</span>{' '}
-          <span className="text-white font-medium">
+          <span className="text-gray-500">Monthly Rent</span>
+          <p className="text-gray-900 font-medium text-lg">
             {formatCurrency(results.monthly_rent)}
-          </span>
+          </p>
         </div>
         <div>
-          <span className="text-gray-400">Monthly Ownership:</span>{' '}
-          <span className="text-white font-medium">
+          <span className="text-gray-500">Monthly Ownership</span>
+          <p className="text-gray-900 font-medium text-lg">
             {formatCurrency(results.monthly_ownership_cost)}
-          </span>
+          </p>
         </div>
       </div>
 
       {/* Break-even */}
-      <div className="text-sm">
-        <span className="text-gray-400">Break-even:</span>{' '}
-        <span className="text-white font-medium">
+      <div className="text-sm pt-4 border-t border-gray-200">
+        <span className="text-gray-500">Break-even:</span>{' '}
+        <span className="text-gray-900 font-medium">
           {results.break_even_year
             ? `Year ${results.break_even_year}`
             : 'Never (within 30 years)'}

@@ -3,5 +3,18 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-50 text-gray-900;
+  @apply bg-white text-gray-800 antialiased;
+}
+
+/* Minimal slider styling */
+input[type="range"] {
+  @apply h-1.5 bg-gray-200 rounded-full appearance-none cursor-pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  @apply appearance-none w-4 h-4 bg-gray-600 rounded-full cursor-pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply w-4 h-4 bg-gray-600 rounded-full cursor-pointer border-0;
 }
