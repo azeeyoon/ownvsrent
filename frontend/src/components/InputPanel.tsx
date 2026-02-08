@@ -51,7 +51,7 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           value={inputs.monthly_rent}
           onChange={(v) => setInput('monthly_rent', v)}
           min={0}
-          max={10000}
+          max={15000}
           step={100}
           format="currency"
           tooltip={TOOLTIPS.monthly_rent}
@@ -85,7 +85,7 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           value={inputs.purchase_price}
           onChange={(v) => setInput('purchase_price', v)}
           min={50000}
-          max={2000000}
+          max={5000000}
           step={10000}
           format="currency"
           tooltip={TOOLTIPS.purchase_price}
@@ -105,7 +105,7 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           value={inputs.mortgage_rate}
           onChange={(v) => setInput('mortgage_rate', v)}
           min={0.01}
-          max={0.12}
+          max={0.15}
           step={0.001}
           format="percent"
           tooltip={TOOLTIPS.mortgage_rate}
@@ -147,7 +147,7 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           value={inputs.property_tax_rate}
           onChange={(v) => setInput('property_tax_rate', v)}
           min={0}
-          max={0.04}
+          max={0.05}
           step={0.001}
           format="percent"
           tooltip={TOOLTIPS.property_tax_rate}
@@ -157,7 +157,7 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           value={inputs.home_insurance_rate}
           onChange={(v) => setInput('home_insurance_rate', v)}
           min={0}
-          max={0.02}
+          max={0.04}
           step={0.001}
           format="percent"
           tooltip={TOOLTIPS.home_insurance_rate}
@@ -167,7 +167,7 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           value={inputs.hoa_monthly}
           onChange={(v) => setInput('hoa_monthly', v)}
           min={0}
-          max={1000}
+          max={2000}
           step={25}
           format="currency"
           tooltip={TOOLTIPS.hoa_monthly}
@@ -201,8 +201,8 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           label="Annual Appreciation"
           value={inputs.annual_appreciation}
           onChange={(v) => setInput('annual_appreciation', v)}
-          min={-0.05}
-          max={0.10}
+          min={-0.10}
+          max={0.15}
           step={0.005}
           format="percent"
           tooltip={TOOLTIPS.annual_appreciation}
@@ -212,8 +212,8 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           label="Selling Costs"
           value={inputs.selling_costs_percent}
           onChange={(v) => setInput('selling_costs_percent', v)}
-          min={0.04}
-          max={0.12}
+          min={0.02}
+          max={0.15}
           step={0.01}
           format="percent"
           tooltip={TOOLTIPS.selling_costs_percent}
@@ -286,8 +286,8 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           label="Investment Return"
           value={inputs.annual_investment_return}
           onChange={(v) => setInput('annual_investment_return', v)}
-          min={0.02}
-          max={0.12}
+          min={0}
+          max={0.15}
           step={0.005}
           format="percent"
           tooltip={TOOLTIPS.annual_investment_return}
@@ -309,8 +309,8 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           label="Closing Costs"
           value={inputs.buyer_closing_costs_percent}
           onChange={(v) => setInput('buyer_closing_costs_percent', v)}
-          min={0.01}
-          max={0.06}
+          min={0}
+          max={0.08}
           step={0.005}
           format="percent"
           tooltip={TOOLTIPS.closing_costs_percent}
@@ -320,7 +320,7 @@ export function InputPanel({ inputs, setInput }: InputPanelProps) {
           value={inputs.security_deposit}
           onChange={(v) => setInput('security_deposit', Math.round(v))}
           min={0}
-          max={3}
+          max={6}
           step={1}
           format="months"
           tooltip={TOOLTIPS.security_deposit}
