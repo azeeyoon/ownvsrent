@@ -6,9 +6,11 @@ function App() {
     <div className="min-h-screen bg-white">
       <header className="border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <h1 className="text-2xl font-semibold text-gray-900">ownvsrent.io</h1>
-          <p className="text-gray-500 mt-1 text-sm">
-            The rent vs. buy calculator that doesn't lie to you.
+          <h1 className="text-3xl font-bold text-gray-900">
+            Should You Rent or Buy a Home in 2026?
+          </h1>
+          <p className="text-gray-600 mt-2 text-base max-w-2xl">
+            Free rent vs buy calculator with real math — taxes, appreciation, opportunity cost, and the numbers most calculators hide.
           </p>
         </div>
       </header>
