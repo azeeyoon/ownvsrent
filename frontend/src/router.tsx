@@ -5,6 +5,7 @@ import { GuidePage } from './pages/GuidePage';
 import { MethodologyPage } from './pages/MethodologyPage';
 import { FaqPage } from './pages/FaqPage';
 import { CityPage } from './pages/CityPage';
+import { CitiesIndexPage } from './pages/CitiesIndexPage';
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
       { path: 'guide', element: <GuidePage /> },
       { path: 'methodology', element: <MethodologyPage /> },
       { path: 'faq', element: <FaqPage /> },
+      { path: 'cities', element: <CitiesIndexPage /> },
       { path: 'cities/:slug', element: <CityPage /> },
     ],
   },
