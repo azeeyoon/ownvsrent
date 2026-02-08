@@ -1,10 +1,14 @@
 import type { CalculatorInputs } from '../lib/defaults';
 import { AccordionSection } from './AccordionSection';
 import { SliderInput } from './SliderInput';
+import { CitySelect } from './CitySelect';
+import type { CityPreset } from '../data/cities';
 
 interface InputPanelProps {
   inputs: CalculatorInputs;
   setInput: <K extends keyof CalculatorInputs>(key: K, value: CalculatorInputs[K]) => void;
+  onCitySelect: (city: CityPreset) => void;
+  selectedCity: string | null;
 }
 
 // Tooltip definitions for each input field
@@ -41,9 +45,14 @@ const TOOLTIPS = {
   broker_fee: "One-time broker fee as a percentage of annual rent. Common in NYC and Boston (up to 15%). Most markets have no broker fee.",
 };
 
-export function InputPanel({ inputs, setInput }: InputPanelProps) {
+export function InputPanel({ inputs, setInput, onCitySelect, selectedCity }: InputPanelProps) {
   return (
     <div className="space-y-4">
+      {/* City Selector */}
+      <div className="mb-6">
+        <CitySelect onSelect={onCitySelect} selectedSlug={selectedCity} />
+      </div>
+
       {/* Rent Section */}
       <AccordionSection title="Your Rent">
         <SliderInput

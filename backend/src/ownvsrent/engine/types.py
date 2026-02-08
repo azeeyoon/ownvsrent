@@ -108,6 +108,9 @@ class CalculatorResults(BaseModel):
     monthly_mortgage_payment: float
     itemization_beneficial: bool
     pmi_removed_month: int | None
+    rent_equivalent: float = Field(
+        description="True monthly cost of ownership expressed as equivalent rent"
+    )
 
 
 class SensitivityResult(BaseModel):

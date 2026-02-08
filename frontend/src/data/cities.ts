@@ -1,0 +1,133 @@
+export interface CityPreset {
+  name: string;
+  slug: string;
+  monthly_rent: number;
+  purchase_price: number;
+  property_tax_rate: number;
+  home_insurance_rate: number;
+  hoa_monthly: number;
+  state_tax_rate: number;
+}
+
+export const CITIES: CityPreset[] = [
+  {
+    name: 'National Average',
+    slug: 'national',
+    monthly_rent: 2000,
+    purchase_price: 400000,
+    property_tax_rate: 0.011,
+    home_insurance_rate: 0.005,
+    hoa_monthly: 0,
+    state_tax_rate: 0.05,
+  },
+  {
+    name: 'New York City, NY',
+    slug: 'nyc',
+    monthly_rent: 3800,
+    purchase_price: 750000,
+    property_tax_rate: 0.009,
+    home_insurance_rate: 0.004,
+    hoa_monthly: 900,
+    state_tax_rate: 0.0685,
+  },
+  {
+    name: 'San Francisco, CA',
+    slug: 'sf',
+    monthly_rent: 3200,
+    purchase_price: 1100000,
+    property_tax_rate: 0.0118,
+    home_insurance_rate: 0.003,
+    hoa_monthly: 600,
+    state_tax_rate: 0.093,
+  },
+  {
+    name: 'Los Angeles, CA',
+    slug: 'la',
+    monthly_rent: 2800,
+    purchase_price: 850000,
+    property_tax_rate: 0.0118,
+    home_insurance_rate: 0.004,
+    hoa_monthly: 400,
+    state_tax_rate: 0.093,
+  },
+  {
+    name: 'Seattle, WA',
+    slug: 'seattle',
+    monthly_rent: 2400,
+    purchase_price: 700000,
+    property_tax_rate: 0.009,
+    home_insurance_rate: 0.003,
+    hoa_monthly: 350,
+    state_tax_rate: 0,
+  },
+  {
+    name: 'Austin, TX',
+    slug: 'austin',
+    monthly_rent: 1900,
+    purchase_price: 480000,
+    property_tax_rate: 0.022,
+    home_insurance_rate: 0.006,
+    hoa_monthly: 150,
+    state_tax_rate: 0,
+  },
+  {
+    name: 'Denver, CO',
+    slug: 'denver',
+    monthly_rent: 2100,
+    purchase_price: 550000,
+    property_tax_rate: 0.006,
+    home_insurance_rate: 0.004,
+    hoa_monthly: 200,
+    state_tax_rate: 0.0455,
+  },
+  {
+    name: 'Miami, FL',
+    slug: 'miami',
+    monthly_rent: 2600,
+    purchase_price: 550000,
+    property_tax_rate: 0.009,
+    home_insurance_rate: 0.012,
+    hoa_monthly: 500,
+    state_tax_rate: 0,
+  },
+  {
+    name: 'Chicago, IL',
+    slug: 'chicago',
+    monthly_rent: 2000,
+    purchase_price: 350000,
+    property_tax_rate: 0.021,
+    home_insurance_rate: 0.005,
+    hoa_monthly: 350,
+    state_tax_rate: 0.0495,
+  },
+  {
+    name: 'Boston, MA',
+    slug: 'boston',
+    monthly_rent: 3100,
+    purchase_price: 700000,
+    property_tax_rate: 0.0109,
+    home_insurance_rate: 0.004,
+    hoa_monthly: 450,
+    state_tax_rate: 0.05,
+  },
+  {
+    name: 'Phoenix, AZ',
+    slug: 'phoenix',
+    monthly_rent: 1700,
+    purchase_price: 420000,
+    property_tax_rate: 0.006,
+    home_insurance_rate: 0.005,
+    hoa_monthly: 100,
+    state_tax_rate: 0.025,
+  },
+  {
+    name: 'Atlanta, GA',
+    slug: 'atlanta',
+    monthly_rent: 1800,
+    purchase_price: 380000,
+    property_tax_rate: 0.009,
+    home_insurance_rate: 0.006,
+    hoa_monthly: 150,
+    state_tax_rate: 0.055,
+  },
+];

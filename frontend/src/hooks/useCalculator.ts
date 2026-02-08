@@ -1,20 +1,30 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { calculate, type CalculatorResults } from '../lib/api';
 import { DEFAULT_INPUTS, type CalculatorInputs } from '../lib/defaults';
+import { parseUrlInputs, useUrlState } from './useUrlState';
+import type { CityPreset } from '../data/cities';
 
 interface UseCalculatorReturn {
   inputs: CalculatorInputs;
   setInput: <K extends keyof CalculatorInputs>(key: K, value: CalculatorInputs[K]) => void;
+  setInputs: (inputs: CalculatorInputs) => void;
   results: CalculatorResults | null;
   loading: boolean;
   error: string | null;
+  copyUrl: () => Promise<boolean>;
+  handleCitySelect: (city: CityPreset) => void;
+  selectedCity: string | null;
 }
 
 export function useCalculator(): UseCalculatorReturn {
-  const [inputs, setInputs] = useState<CalculatorInputs>(DEFAULT_INPUTS);
+  const [inputs, setInputs] = useState<CalculatorInputs>(() => {
+    const urlInputs = parseUrlInputs();
+    return { ...DEFAULT_INPUTS, ...urlInputs };
+  });
   const [results, setResults] = useState<CalculatorResults | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const runCalculation = useCallback(async (currentInputs: CalculatorInputs) => {
@@ -58,5 +68,22 @@ export function useCalculator(): UseCalculatorReturn {
     setInputs(prev => ({ ...prev, [key]: value }));
   }, []);
 
-  return { inputs, setInput, results, loading, error };
+  // City selection handler
+  const handleCitySelect = useCallback((city: CityPreset) => {
+    setSelectedCity(city.slug);
+    setInputs(prev => ({
+      ...prev,
+      monthly_rent: city.monthly_rent,
+      purchase_price: city.purchase_price,
+      property_tax_rate: city.property_tax_rate,
+      home_insurance_rate: city.home_insurance_rate,
+      hoa_monthly: city.hoa_monthly,
+      state_tax_rate: city.state_tax_rate,
+    }));
+  }, []);
+
+  // URL state sync
+  const { copyUrl } = useUrlState(inputs, setInputs);
+
+  return { inputs, setInput, setInputs, results, loading, error, copyUrl, handleCitySelect, selectedCity };
 }

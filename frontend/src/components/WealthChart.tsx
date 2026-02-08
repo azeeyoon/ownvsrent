@@ -14,18 +14,69 @@ import { formatCompactCurrency } from '../lib/formatters';
 
 interface WealthChartProps {
   results: CalculatorResults;
+  resultsB?: CalculatorResults | null;
 }
 
-export function WealthChart({ results }: WealthChartProps) {
-  const data = results.yearly_snapshots.map((snapshot) => ({
-    year: snapshot.year,
-    renter: snapshot.renter_wealth,
-    buyer: snapshot.buyer_wealth,
-  }));
+export function WealthChart({ results, resultsB }: WealthChartProps) {
+  const isComparing = !!resultsB;
+
+  // For comparison mode, merge both scenarios' data
+  const data = results.yearly_snapshots.map((snapshot, i) => {
+    const base: Record<string, number> = {
+      year: snapshot.year,
+      renter: snapshot.renter_wealth,
+      buyer: snapshot.buyer_wealth,
+    };
+
+    if (resultsB?.yearly_snapshots[i]) {
+      base.renterB = resultsB.yearly_snapshots[i].renter_wealth;
+      base.buyerB = resultsB.yearly_snapshots[i].buyer_wealth;
+    }
+
+    return base;
+  });
+
+  const formatLegend = (value: string) => {
+    if (isComparing) {
+      switch (value) {
+        case 'renter':
+          return 'A: Renter';
+        case 'buyer':
+          return 'A: Buyer';
+        case 'renterB':
+          return 'B: Renter';
+        case 'buyerB':
+          return 'B: Buyer';
+        default:
+          return value;
+      }
+    }
+    return value === 'renter' ? 'Renter Wealth' : 'Buyer Wealth';
+  };
+
+  const formatTooltipName = (name: string) => {
+    if (isComparing) {
+      switch (name) {
+        case 'renter':
+          return 'A: Renter';
+        case 'buyer':
+          return 'A: Buyer';
+        case 'renterB':
+          return 'B: Renter';
+        case 'buyerB':
+          return 'B: Buyer';
+        default:
+          return name;
+      }
+    }
+    return name === 'renter' ? 'Renter' : 'Buyer';
+  };
 
   return (
     <div className="bg-gray-50 rounded-xl p-6">
-      <h3 className="text-sm font-medium text-gray-600 mb-4">Wealth Over Time</h3>
+      <h3 className="text-sm font-medium text-gray-600 mb-4">
+        {isComparing ? 'Wealth Comparison' : 'Wealth Over Time'}
+      </h3>
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
@@ -55,18 +106,16 @@ export function WealthChart({ results }: WealthChartProps) {
               labelStyle={{ color: '#374151', fontWeight: 500 }}
               formatter={(value, name) => [
                 formatCompactCurrency(value as number),
-                name === 'renter' ? 'Renter' : 'Buyer',
+                formatTooltipName(name as string),
               ]}
               labelFormatter={(label) => `Year ${label}`}
             />
             <Legend
               iconType="line"
-              formatter={(value) =>
-                value === 'renter' ? 'Renter Wealth' : 'Buyer Wealth'
-              }
+              formatter={formatLegend}
               wrapperStyle={{ fontSize: 12 }}
             />
-            {results.break_even_year && (
+            {!isComparing && results.break_even_year && (
               <ReferenceLine
                 x={results.break_even_year}
                 stroke="#9CA3AF"
@@ -79,6 +128,7 @@ export function WealthChart({ results }: WealthChartProps) {
                 }}
               />
             )}
+            {/* Scenario A lines */}
             <Line
               type="monotone"
               dataKey="renter"
@@ -93,11 +143,34 @@ export function WealthChart({ results }: WealthChartProps) {
               strokeWidth={2}
               dot={false}
             />
+            {/* Scenario B lines (dashed) */}
+            {isComparing && (
+              <>
+                <Line
+                  type="monotone"
+                  dataKey="renterB"
+                  stroke="#0284c7"
+                  strokeWidth={2}
+                  strokeDasharray="5 5"
+                  dot={false}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="buyerB"
+                  stroke="#059669"
+                  strokeWidth={2}
+                  strokeDasharray="5 5"
+                  dot={false}
+                />
+              </>
+            )}
           </LineChart>
         </ResponsiveContainer>
       </div>
       <p className="text-xs text-gray-400 mt-4">
-        Renter wealth = investment portfolio. Buyer wealth = home equity + portfolio − selling costs − taxes.
+        {isComparing
+          ? 'Solid lines = Scenario A. Dashed lines = Scenario B.'
+          : 'Renter wealth = investment portfolio. Buyer wealth = home equity + portfolio − selling costs − taxes.'}
       </p>
     </div>
   );

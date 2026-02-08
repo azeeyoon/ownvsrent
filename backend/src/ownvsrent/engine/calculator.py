@@ -315,6 +315,19 @@ def calculate(inputs: CalculatorInputs) -> CalculatorResults:
     final_year = yearly_snapshots[-1]
     final_month = monthly_snapshots[-1]
 
+    # Calculate rent equivalent
+    # Total ownership outflow = all monthly costs + upfront costs
+    total_buy_outflow = sum(s.total_buy_cost for s in monthly_snapshots)
+    total_buy_outflow += down_payment + buyer_closing_costs  # upfront costs
+    # Subtract what you get back (home equity minus selling costs)
+    selling_costs = calculate_selling_costs(
+        sale_price=final_month.home_value,
+        selling_costs_percent=inputs.selling_costs_percent,
+    )
+    net_proceeds = final_month.home_equity - selling_costs
+    # Rent equivalent = (total spent - net proceeds) / months
+    rent_equivalent = (total_buy_outflow - net_proceeds) / total_months
+
     # Determine itemization status for year 1
     year1_tax_benefit, itemization_beneficial = calculate_annual_tax_benefit(
         mortgage_interest=yearly_data[1]["mortgage_interest"],
@@ -345,4 +358,5 @@ def calculate(inputs: CalculatorInputs) -> CalculatorResults:
         monthly_mortgage_payment=mortgage_payment,
         itemization_beneficial=itemization_beneficial,
         pmi_removed_month=pmi_removed_month,
+        rent_equivalent=rent_equivalent,
     )

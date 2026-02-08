@@ -22,6 +22,7 @@ export interface CalculatorResults {
   monthly_mortgage_payment: number;
   itemization_beneficial: boolean;
   pmi_removed_month: number | null;
+  rent_equivalent: number;
 }
 
 export async function calculate(inputs: CalculatorInputs): Promise<CalculatorResults> {
