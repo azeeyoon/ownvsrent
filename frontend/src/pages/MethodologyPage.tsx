@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { methodologySections } from '../content/methodology-content';
 
 const sectionIcons: Record<string, string> = {
@@ -131,14 +132,22 @@ export function MethodologyPage() {
               </div>
 
               <div className="prose prose-lg prose-gray max-w-none
-                prose-headings:text-gray-900 prose-headings:font-semibold
+                prose-headings:text-gray-900 prose-headings:font-bold
+                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
                 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-                prose-p:text-gray-600 prose-p:leading-relaxed
+                prose-h4:text-lg prose-h4:mt-6 prose-h4:mb-3
+                prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-4
                 prose-strong:text-gray-900 prose-strong:font-semibold
-                prose-ul:text-gray-600 prose-li:marker:text-gray-400
-                prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-emerald-700 prose-code:font-mono prose-code:text-sm
+                prose-ul:text-gray-600 prose-ul:my-4 prose-li:marker:text-gray-400 prose-li:mb-2
+                prose-ol:text-gray-600 prose-ol:my-4
+                prose-blockquote:border-l-4 prose-blockquote:border-emerald-500 prose-blockquote:bg-emerald-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-blockquote:text-gray-700
+                prose-table:my-6 prose-table:w-full
+                prose-th:bg-gray-100 prose-th:px-4 prose-th:py-3 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-th:border prose-th:border-gray-200
+                prose-td:px-4 prose-td:py-3 prose-td:border prose-td:border-gray-200 prose-td:text-gray-600
+                prose-hr:my-8 prose-hr:border-gray-200
+                prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-emerald-700 prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
                 prose-a:text-emerald-600 prose-a:no-underline hover:prose-a:underline">
-                <ReactMarkdown>{section.content}</ReactMarkdown>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{section.content}</ReactMarkdown>
               </div>
 
               {index < methodologySections.length - 1 && (
