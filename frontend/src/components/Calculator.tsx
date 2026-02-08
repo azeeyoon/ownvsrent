@@ -6,6 +6,7 @@ import { InputPanel } from './InputPanel';
 import { VerdictCard } from './VerdictCard';
 import { WealthChart } from './WealthChart';
 import { ScenarioToggle } from './ScenarioToggle';
+import { MortgageRateWidget } from './AffiliateWidget';
 import { formatCurrency } from '../lib/formatters';
 
 export function Calculator() {
@@ -166,6 +167,11 @@ export function Calculator() {
               <div className={loading ? 'opacity-50 transition-opacity' : 'transition-opacity'}>
                 <WealthChart results={results} />
               </div>
+
+              {/* Affiliate Widget - show when buying is favorable or toss-up */}
+              {(results.verdict === 'buy' || results.verdict === 'toss-up') && (
+                <MortgageRateWidget variant="compact" className="mt-6" />
+              )}
             </>
           )}
 

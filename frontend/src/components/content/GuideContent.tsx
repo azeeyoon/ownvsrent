@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MortgageRateWidget } from '../AffiliateWidget';
 
 // Reusable components for content
 function SectionDivider() {
@@ -807,6 +808,11 @@ export function UsingCalculatorSection() {
           </svg>
         </Link>
       </HighlightBox>
+
+      <SectionDivider />
+
+      {/* Affiliate Widget */}
+      <MortgageRateWidget variant="full" />
     </>
   );
 }
