@@ -7,6 +7,32 @@ function findPost(slug: string) {
   return BLOG_POSTS.find(post => post.slug === slug);
 }
 
+// Helper to process inline formatting (bold)
+function formatInlineText(text: string, keyPrefix: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  const boldRegex = /\*\*(.+?)\*\*/g;
+  let match;
+
+  while ((match = boldRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <strong key={`${keyPrefix}-bold-${match.index}`} className="font-semibold text-gray-900">
+        {match[1]}
+      </strong>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 // Simple markdown-to-JSX converter for blog content
 function renderContent(content: string) {
   const lines = content.split('\n');
@@ -25,7 +51,7 @@ function renderContent(content: string) {
       elements.push(
         <ListTag key={elements.length} className={listClass}>
           {currentList.map((item, i) => (
-            <li key={i}>{item}</li>
+            <li key={i}>{formatInlineText(item, `list-${elements.length}-${i}`)}</li>
           ))}
         </ListTag>
       );
@@ -155,28 +181,9 @@ function renderContent(content: string) {
     // Regular paragraph
     flushList();
 
-    // Process inline formatting
-    let text = line;
-    const parts: (string | React.ReactElement)[] = [];
-    let lastIndex = 0;
-
-    // Bold
-    const boldRegex = /\*\*(.+?)\*\*/g;
-    let match;
-    while ((match = boldRegex.exec(text)) !== null) {
-      if (match.index > lastIndex) {
-        parts.push(text.slice(lastIndex, match.index));
-      }
-      parts.push(<strong key={`bold-${match.index}`} className="font-semibold text-gray-900">{match[1]}</strong>);
-      lastIndex = match.index + match[0].length;
-    }
-    if (lastIndex < text.length) {
-      parts.push(text.slice(lastIndex));
-    }
-
     elements.push(
       <p key={elements.length} className="text-gray-600 leading-relaxed my-4">
-        {parts.length > 0 ? parts : text}
+        {formatInlineText(line, `p-${elements.length}`)}
       </p>
     );
   }
