@@ -1,0 +1,64 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1200" height="630" fill="#111827"/>
+  <rect width="1200" height="630" fill="url(#gradient)" opacity="0.5"/>
+
+  <!-- Grid pattern overlay -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Green accent bar at top -->
+  <rect width="1200" height="4" fill="#10B981"/>
+
+  <!-- House icon -->
+  <g transform="translate(80, 80)">
+    <rect width="60" height="60" rx="12" fill="#10B981" opacity="0.2"/>
+    <text x="30" y="42" text-anchor="middle" font-size="32">🏠</text>
+  </g>
+
+  <!-- Logo text -->
+  <text x="160" y="125" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white">
+    Own <tspan fill="#9CA3AF" font-weight="400">vs</tspan> Rent
+  </text>
+
+  <!-- Main headline -->
+  <text x="80" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="64" font-weight="700" fill="white">
+    Should You Rent or Buy?
+  </text>
+
+  <!-- Subheadline -->
+  <text x="80" y="360" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#9CA3AF">
+    Free calculator with real math — not sales pitches.
+  </text>
+
+  <!-- Feature pills -->
+  <g transform="translate(80, 420)">
+    <rect x="0" y="0" width="180" height="44" rx="22" fill="#10B981" opacity="0.2"/>
+    <text x="90" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#10B981">✓ Tax Calculations</text>
+
+    <rect x="200" y="0" width="200" height="44" rx="22" fill="#10B981" opacity="0.2"/>
+    <text x="300" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#10B981">✓ Opportunity Cost</text>
+
+    <rect x="420" y="0" width="180" height="44" rx="22" fill="#10B981" opacity="0.2"/>
+    <text x="510" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#10B981">✓ Break-even Year</text>
+  </g>
+
+  <!-- URL -->
+  <text x="80" y="560" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#6B7280">
+    ownvsrent.io
+  </text>
+
+  <!-- Decorative elements -->
+  <circle cx="1050" cy="150" r="120" fill="#10B981" opacity="0.1"/>
+  <circle cx="1100" cy="500" r="80" fill="#10B981" opacity="0.05"/>
+
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+</svg>
