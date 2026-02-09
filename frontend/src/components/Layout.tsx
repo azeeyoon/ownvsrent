@@ -8,8 +8,9 @@ export function Layout() {
     <div className="min-h-screen bg-white flex flex-col">
       <header className="border-b border-gray-100 sticky top-0 bg-white z-40">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="text-xl font-bold text-gray-900">
-            ownvsrent.io
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">
+            <span className="text-2xl">🏠</span>
+            <span>Own <span className="text-gray-400 font-normal">vs</span> Rent</span>
           </Link>
           <Navigation />
         </div>
