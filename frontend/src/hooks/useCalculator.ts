@@ -16,15 +16,24 @@ interface UseCalculatorReturn {
   selectedCity: string | null;
 }
 
-export function useCalculator(): UseCalculatorReturn {
+export function useCalculator(initialCity?: CityPreset): UseCalculatorReturn {
   const [inputs, setInputs] = useState<CalculatorInputs>(() => {
     const urlInputs = parseUrlInputs();
-    return { ...DEFAULT_INPUTS, ...urlInputs };
+    // City defaults override base defaults, URL params override city
+    const cityDefaults = initialCity ? {
+      monthly_rent: initialCity.monthly_rent,
+      purchase_price: initialCity.purchase_price,
+      property_tax_rate: initialCity.property_tax_rate,
+      home_insurance_rate: initialCity.home_insurance_rate,
+      hoa_monthly: initialCity.hoa_monthly,
+      state_tax_rate: initialCity.state_tax_rate,
+    } : {};
+    return { ...DEFAULT_INPUTS, ...cityDefaults, ...urlInputs };
   });
   const [results, setResults] = useState<CalculatorResults | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedCity, setSelectedCity] = useState<string | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string | null>(initialCity?.slug ?? null);
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const runCalculation = useCallback(async (currentInputs: CalculatorInputs) => {
