@@ -70,7 +70,7 @@ export function CityPage() {
         </div>
 
         {/* Market Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
           <div className="bg-gray-50 rounded-xl p-4">
             <div className="text-sm text-gray-500">Median Home Price</div>
             <div className="text-xl font-semibold text-gray-900">
@@ -87,12 +87,6 @@ export function CityPage() {
             <div className="text-sm text-gray-500">Property Tax Rate</div>
             <div className="text-xl font-semibold text-gray-900">
               {(city.property_tax_rate * 100).toFixed(2)}%
-            </div>
-          </div>
-          <div className="bg-gray-50 rounded-xl p-4">
-            <div className="text-sm text-gray-500">State Income Tax</div>
-            <div className="text-xl font-semibold text-gray-900">
-              {city.state_tax_rate === 0 ? 'None' : `${(city.state_tax_rate * 100).toFixed(2)}%`}
             </div>
           </div>
         </div>
