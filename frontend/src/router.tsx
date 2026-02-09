@@ -7,6 +7,8 @@ import { FaqPage } from './pages/FaqPage';
 import { CityPage } from './pages/CityPage';
 import { CitiesIndexPage } from './pages/CitiesIndexPage';
 import { PrivacyPage } from './pages/PrivacyPage';
+import { BlogIndexPage } from './pages/BlogIndexPage';
+import { BlogPostPage } from './pages/BlogPostPage';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +21,8 @@ export const router = createBrowserRouter([
       { path: 'faq', element: <FaqPage /> },
       { path: 'cities', element: <CitiesIndexPage /> },
       { path: 'cities/:slug', element: <CityPage /> },
+      { path: 'blog', element: <BlogIndexPage /> },
+      { path: 'blog/:slug', element: <BlogPostPage /> },
       { path: 'privacy', element: <PrivacyPage /> },
     ],
   },
