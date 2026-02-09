@@ -94,7 +94,7 @@ export function FaqPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white">
-        <div className="max-w-4xl mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
           <div className="flex items-center gap-2 text-sm text-purple-300 mb-4">
             <Link to="/" className="hover:text-white">Home</Link>
             <span>/</span>
@@ -123,7 +123,7 @@ export function FaqPage() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Quick Jump */}
         <nav className="mb-12 p-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl border border-purple-100">
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">

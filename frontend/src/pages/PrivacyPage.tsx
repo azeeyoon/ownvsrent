@@ -14,7 +14,7 @@ export function PrivacyPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div className="max-w-4xl mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
           <div className="flex items-center gap-2 text-sm text-slate-400 mb-4">
             <Link to="/" className="hover:text-white">Home</Link>
             <span>/</span>
@@ -37,7 +37,7 @@ export function PrivacyPage() {
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Key Privacy Points */}
         <div className="mb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
