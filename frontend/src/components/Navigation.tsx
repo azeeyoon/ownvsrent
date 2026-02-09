@@ -6,6 +6,7 @@ const navLinks = [
   { to: '/guide', label: 'Guide' },
   { to: '/cities', label: 'Cities' },
   { to: '/blog', label: 'Blog' },
+  { to: '/methodology', label: 'How It Works' },
   { to: '/faq', label: 'FAQ' },
 ];
 
