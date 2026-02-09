@@ -8,9 +8,14 @@ import { WealthChart } from './WealthChart';
 import { ScenarioToggle } from './ScenarioToggle';
 import { MortgageRateWidget } from './AffiliateWidget';
 import { formatCurrency } from '../lib/formatters';
+import type { CityData } from '../data/cities';
 
-export function Calculator() {
-  const { inputs, setInput, results, loading, error, copyUrl, handleCitySelect, selectedCity } = useCalculator();
+interface CalculatorProps {
+  initialCity?: CityData;
+}
+
+export function Calculator({ initialCity }: CalculatorProps) {
+  const { inputs, setInput, results, loading, error, copyUrl, handleCitySelect, selectedCity } = useCalculator(initialCity);
   const [showToast, setShowToast] = useState(false);
 
   // Scenario comparison
