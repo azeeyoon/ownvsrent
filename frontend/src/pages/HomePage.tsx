@@ -1,4 +1,5 @@
 import { Calculator } from '../components/Calculator';
+import { AdUnit } from '../components/AdUnit';
 
 export function HomePage() {
   return (
@@ -12,6 +13,11 @@ export function HomePage() {
         </p>
       </div>
       <Calculator />
+
+      {/* Ad placement below calculator */}
+      <div className="mt-12 flex justify-center">
+        <AdUnit slot="1442070296" format="leaderboard" />
+      </div>
     </div>
   );
 }

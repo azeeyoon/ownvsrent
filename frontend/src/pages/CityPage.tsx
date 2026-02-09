@@ -4,6 +4,7 @@ import { CITIES, type CityData } from '../data/cities';
 import { Calculator } from '../components/Calculator';
 import { CityPageSchema } from '../components/CityPageSchema';
 import { CityContent } from '../components/CityContent';
+import { AdUnit } from '../components/AdUnit';
 
 function findCity(slug: string): CityData | undefined {
   return CITIES.find(city => city.slug === slug);
@@ -119,6 +120,11 @@ export function CityPage() {
 
         {/* City-specific SEO Content */}
         <CityContent city={city} />
+
+        {/* In-article ad */}
+        <div className="my-10 flex justify-center">
+          <AdUnit slot="9767282879" format="in-article" />
+        </div>
 
         {/* Other Cities */}
         <div className="border-t border-gray-100 pt-8 mt-12">

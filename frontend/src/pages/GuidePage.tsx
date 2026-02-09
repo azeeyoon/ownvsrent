@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { guideSectionsData } from '../components/content/GuideContent';
+import { AdUnit } from '../components/AdUnit';
 
 export function GuidePage() {
   useEffect(() => {
@@ -105,6 +106,11 @@ export function GuidePage() {
               </section>
             );
           })}
+        </div>
+
+        {/* In-article ad */}
+        <div className="mt-10 flex justify-center">
+          <AdUnit slot="9767282879" format="in-article" />
         </div>
 
         {/* CTA Section */}
