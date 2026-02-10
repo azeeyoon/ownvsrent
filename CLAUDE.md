@@ -1,5 +1,36 @@
 # CLAUDE.md — ownvsrent.io
 
+## Session Continuity Rules
+
+**IMPORTANT:** Update this file whenever significant operations are performed to preserve context for future Claude Code sessions.
+
+### What to Document
+- New features added or modified
+- Configuration changes (env vars, build settings)
+- New dependencies or tools installed
+- SEO/content updates
+- Bug fixes and their solutions
+- Pending tasks or known issues
+
+### Recent Updates Log
+
+| Date | Change |
+|------|--------|
+| 2026-02-09 | Added SEO enhancements to blog pages (canonical URLs, Open Graph, BreadcrumbList schema, enhanced Article schema) |
+| 2026-02-09 | Created `/seo-blog-post` Claude skill for generating SEO-optimized blog posts (~/.claude/skills/seo-blog-post/) |
+| 2026-02-09 | Fixed mobile responsiveness (overflow-x-hidden, responsive AdUnit) |
+| 2026-02-09 | Added blog section with 5 initial posts |
+| 2026-02-09 | Set up AdSense integration (VITE_ADSENSE_ID, display slot: 1442070296, in-article slot: 9767282879) |
+| 2026-02-08 | Created 26 city-specific landing pages with SEO content |
+| 2026-02-08 | Set up Reddit monitoring guide (reddit-monitor/SETUP.md) — awaiting API approval |
+
+### Pending Tasks
+- Reddit API approval (then upgrade monitoring to automated)
+- AdSense activation (currently "Getting ready")
+- Generate more blog posts using `/seo-blog-post` skill
+
+---
+
 ## Project Overview
 
 A free, client-side rent vs. buy financial calculator targeting Google AdSense monetization. The site helps users make an informed rent-vs-buy decision with transparent math, sensitivity analysis, and no bias toward either option.
