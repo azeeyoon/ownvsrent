@@ -5,7 +5,7 @@ import { Footer } from './Footer';
 
 export function Layout() {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col overflow-x-hidden">
       <header className="border-b border-gray-100 sticky top-0 bg-white z-40">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">

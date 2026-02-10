@@ -6,12 +6,6 @@ interface AdUnitProps {
   className?: string;
 }
 
-const formatStyles = {
-  leaderboard: { width: 728, height: 90 },
-  rectangle: { width: 300, height: 250 },
-  'in-article': { width: 336, height: 280 },
-};
-
 export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
   const adRef = useRef<HTMLModElement>(null);
   const isLoaded = useRef(false);
@@ -32,24 +26,25 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
     }
   }, []);
 
-  const { width, height } = formatStyles[format];
-
+  // In development, show placeholder
   if (!import.meta.env.PROD) {
+    const placeholderHeight = format === 'leaderboard' ? 90 : format === 'rectangle' ? 250 : 280;
     return (
       <div
-        className={`bg-gray-100 flex items-center justify-center text-gray-400 text-sm ${className}`}
-        style={{ width, height }}
+        className={`bg-gray-100 flex items-center justify-center text-gray-400 text-sm w-full max-w-full ${className}`}
+        style={{ height: placeholderHeight }}
       >
         Ad Placeholder ({format})
       </div>
     );
   }
 
+  // In production, use responsive AdSense
   return (
     <ins
       ref={adRef}
-      className={`adsbygoogle ${className}`}
-      style={{ display: 'block', width, height }}
+      className={`adsbygoogle block w-full ${className}`}
+      style={{ display: 'block' }}
       data-ad-client={import.meta.env.VITE_ADSENSE_ID}
       data-ad-slot={slot}
       data-ad-format="auto"
