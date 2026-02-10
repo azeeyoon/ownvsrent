@@ -10,6 +10,202 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'how-to-budget-for-home-purchase',
+    title: 'How to Budget for a Home Purchase: A Complete Guide',
+    description: 'Learn exactly how to budget for buying a home in 2026. Includes down payment strategies, savings timelines, and a step-by-step financial plan.',
+    date: '2026-02-09',
+    readTime: '8 min',
+    category: 'buying',
+    content: `
+Buying a home is the biggest financial decision most people make, yet many jump in without a clear budget. If you're wondering how to budget for a home purchase, this guide breaks down exactly what you need to save, how long it takes, and the strategies that actually work.
+
+## The Real Cost of Buying a Home
+
+The purchase price is just the beginning. To budget accurately, you need to account for all upfront costs:
+
+### Down Payment
+
+Contrary to popular belief, you don't need 20% down. Here's what different loan types actually require:
+
+- **Conventional loans:** 3-5% minimum
+- **FHA loans:** 3.5% with credit score 580+
+- **VA loans:** 0% for eligible veterans
+- **USDA loans:** 0% in eligible rural areas
+
+In 2024, the median down payment in the U.S. was $67,500 — the highest in 13 years. First-time buyers averaged 8%, while repeat buyers put down 19%.
+
+For a $400,000 home:
+- 3% down = $12,000
+- 10% down = $40,000
+- 20% down = $80,000
+
+### Closing Costs
+
+Budget 2-5% of the loan amount for closing costs. On a $380,000 loan (after 5% down on a $400K home), that's $7,600-$19,000.
+
+Closing costs include:
+- Loan origination fees
+- Appraisal and inspection
+- Title insurance
+- Attorney fees
+- Prepaid taxes and insurance
+
+### Moving and Immediate Repairs
+
+Don't forget:
+- Moving costs: $1,000-$5,000
+- Immediate repairs/updates: $2,000-$10,000
+- New furniture and appliances: varies widely
+
+**Total upfront budget for a $400,000 home:** $25,000-$115,000 depending on down payment size.
+
+## How Long Does It Take to Save?
+
+At the national average savings rate, it takes about **7 years** to save a typical down payment — down from 12 years in 2022, thanks to wage growth outpacing home prices in some markets.
+
+But you can accelerate this significantly with intentional budgeting.
+
+### The 50/30/20 Budget for Future Homeowners
+
+Start with a modified version of the classic budget:
+
+- **50% Needs:** Rent, utilities, groceries, minimum debt payments
+- **30% Wants:** Entertainment, dining out, subscriptions
+- **20% Savings:** Split between emergency fund and down payment
+
+Once your emergency fund has 3-6 months of expenses, redirect that entire 20% to your down payment fund.
+
+### Sample Savings Timeline
+
+Here's how fast you could save $40,000 (10% on a $400K home):
+
+| Monthly Savings | Time to $40,000 |
+|-----------------|------------------|
+| $500 | 6.5 years |
+| $1,000 | 3.3 years |
+| $1,500 | 2.2 years |
+| $2,000 | 1.7 years |
+
+## Where Does Down Payment Money Come From?
+
+According to recent data, buyers fund their down payments from:
+
+- **Savings:** 49% of all buyers
+- **Sale of previous home:** 32% (repeat buyers)
+- **Gift from family:** 20% (common for ages 25-33)
+- **Stocks/investments:** 8%
+- **401(k) loan:** 5%
+- **Inheritance:** 4%
+
+If you have family help available, a gift can dramatically accelerate your timeline. Just document it properly — lenders require a gift letter confirming it's not a loan.
+
+## Step-by-Step Home Purchase Budget
+
+Here's how to build your budget from scratch:
+
+### Step 1: Determine Your Target Purchase Price
+
+A common guideline: aim for a home 2.5-3x your annual household income. With a $100,000 income, that's $250,000-$300,000.
+
+But guidelines don't account for your specific situation. Use our [rent vs buy calculator](/) to see what monthly payment you can actually afford based on your full financial picture.
+
+### Step 2: Calculate Your Savings Target
+
+Add up:
+- Down payment (choose 3-20% based on your timeline)
+- Closing costs (3% of purchase price)
+- Emergency fund buffer ($5,000-10,000 post-purchase)
+
+For a $350,000 home with 10% down:
+- Down payment: $35,000
+- Closing costs: $10,500
+- Buffer: $7,500
+- **Total target: $53,000**
+
+### Step 3: Open a Dedicated Savings Account
+
+Keep your house fund separate from everyday banking. A high-yield savings account (currently paying 4-5% APY) lets your money grow while staying accessible.
+
+Automate transfers on payday — you can't spend what you never see.
+
+### Step 4: Track Monthly Housing Costs Now
+
+Here's a powerful exercise: calculate what your future mortgage payment would be, then "practice" paying it now.
+
+If your target monthly payment is $2,500 and your current rent is $1,800, save the $700 difference each month. This:
+- Accelerates your down payment savings
+- Proves you can handle the higher payment
+- Builds the habit before you're committed
+
+### Step 5: Reduce Debt Before Buying
+
+Your debt-to-income ratio (DTI) directly affects how much you can borrow. Most lenders want total DTI under 43%.
+
+Prioritize paying off:
+- High-interest credit cards
+- Car loans (especially if payoff is within 2 years)
+- Personal loans
+
+Student loans are trickier — the monthly payment matters more than the balance. Income-driven repayment plans can lower your DTI.
+
+## Hidden Costs to Budget For
+
+First-time buyers are often surprised by ongoing costs beyond the mortgage:
+
+### Property Taxes
+
+Typically 0.5-2.5% of home value annually. On a $400,000 home, that's $2,000-$10,000/year ($165-$830/month).
+
+### Homeowner's Insurance
+
+National average is about $1,900/year, but varies dramatically by location. Florida averages $4,200/year; coastal California can exceed $5,000.
+
+### Maintenance
+
+Budget 1-2% of home value annually for upkeep. For a $400,000 home: $4,000-$8,000/year.
+
+This covers:
+- HVAC servicing and replacement
+- Roof repairs
+- Appliance replacements
+- Plumbing and electrical issues
+
+### PMI (If Putting Less Than 20% Down)
+
+Private mortgage insurance typically costs 0.5-1% of the loan annually. On a $380,000 loan: $1,900-$3,800/year until you reach 20% equity.
+
+## Should You Buy or Keep Renting?
+
+Here's the honest truth: buying isn't always better than renting, even if you can afford it.
+
+Buying makes more sense when:
+- You'll stay 5+ years (to recover transaction costs)
+- The price-to-rent ratio is under 20 in your area
+- You want stability and customization
+- You're ready for maintenance responsibility
+
+Renting makes more sense when:
+- You might move within 3-5 years
+- You're in an expensive market (SF, NYC, LA)
+- You'd rather invest the down payment in stocks
+- You value flexibility over ownership
+
+Run your specific numbers with our [rent vs buy calculator](/) — it factors in opportunity cost, tax benefits, and long-term wealth building.
+
+## The Bottom Line
+
+Budgeting for a home purchase comes down to:
+
+1. **Know your total upfront cost** — down payment + closing costs + buffer
+2. **Save aggressively** — automate 20%+ of income to a dedicated account
+3. **Practice the payment** — save the difference between rent and your future mortgage
+4. **Don't forget ongoing costs** — taxes, insurance, and maintenance add 1-3% of home value annually
+5. **Run the numbers** — use a calculator to compare buying vs. renting for your situation
+
+The median homebuyer now saves for 7 years. With intentional budgeting, you can cut that timeline significantly — or decide that renting and investing makes more sense for you. Either way, knowing your numbers puts you in control.
+    `.trim(),
+  },
+  {
     slug: 'hidden-costs-of-homeownership',
     title: 'The Hidden Costs of Homeownership Nobody Talks About',
     description: 'Beyond the mortgage payment, here are the real costs that catch first-time buyers off guard.',
