@@ -5,14 +5,97 @@ import { BLOG_POSTS, BLOG_CATEGORIES } from '../data/blogPosts';
 export function BlogIndexPage() {
   useEffect(() => {
     document.title = 'Blog | Rent vs Buy Tips & Advice | Own vs Rent';
+
+    // Meta description
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute('content', 'Expert tips on renting vs buying a home. Learn about hidden costs, negotiation strategies, and how to make the best housing decision for your situation.');
     }
+
+    // Canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', 'https://ownvsrent.io/blog');
+
+    // Open Graph tags
+    const ogTags = [
+      { property: 'og:title', content: 'Rent vs Buy Blog | Own vs Rent' },
+      { property: 'og:description', content: 'Expert tips on renting vs buying a home. Learn about hidden costs, negotiation strategies, and smart housing decisions.' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://ownvsrent.io/blog' },
+      { property: 'og:site_name', content: 'Own vs Rent' },
+      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:title', content: 'Rent vs Buy Blog | Own vs Rent' },
+      { name: 'twitter:description', content: 'Expert tips on renting vs buying a home.' },
+    ];
+
+    ogTags.forEach(({ property, name, content }) => {
+      const selector = property ? `meta[property="${property}"]` : `meta[name="${name}"]`;
+      let tag = document.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement('meta');
+        if (property) tag.setAttribute('property', property);
+        if (name) tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute('content', content);
+    });
   }, []);
 
+  // JSON-LD for CollectionPage
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Rent vs Buy Blog",
+    "description": "Expert tips on renting vs buying a home. Learn about hidden costs, negotiation strategies, and how to make the best housing decision for your situation.",
+    "url": "https://ownvsrent.io/blog",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": BLOG_POSTS.length,
+      "itemListElement": BLOG_POSTS.map((post, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `https://ownvsrent.io/blog/${post.slug}`,
+        "name": post.title
+      }))
+    }
+  };
+
+  // JSON-LD for breadcrumbs
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ownvsrent.io"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://ownvsrent.io/blog"
+      }
+    ]
+  };
+
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
@@ -81,5 +164,6 @@ export function BlogIndexPage() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

@@ -201,10 +201,47 @@ export function BlogPostPage() {
   useEffect(() => {
     if (post) {
       document.title = `${post.title} | Own vs Rent Blog`;
+
+      // Meta description
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
         metaDesc.setAttribute('content', post.description);
       }
+
+      // Canonical URL
+      let canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute('href', `https://ownvsrent.io/blog/${post.slug}`);
+
+      // Open Graph tags
+      const ogTags = [
+        { property: 'og:title', content: post.title },
+        { property: 'og:description', content: post.description },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: `https://ownvsrent.io/blog/${post.slug}` },
+        { property: 'og:site_name', content: 'Own vs Rent' },
+        { property: 'article:published_time', content: post.date },
+        { property: 'article:section', content: BLOG_CATEGORIES[post.category].label },
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:title', content: post.title },
+        { name: 'twitter:description', content: post.description },
+      ];
+
+      ogTags.forEach(({ property, name, content }) => {
+        const selector = property ? `meta[property="${property}"]` : `meta[name="${name}"]`;
+        let tag = document.querySelector(selector);
+        if (!tag) {
+          tag = document.createElement('meta');
+          if (property) tag.setAttribute('property', property);
+          if (name) tag.setAttribute('name', name);
+          document.head.appendChild(tag);
+        }
+        tag.setAttribute('content', content);
+      });
     }
   }, [post]);
 
@@ -217,22 +254,64 @@ export function BlogPostPage() {
     .filter(p => p.category === post.category && p.slug !== post.slug)
     .slice(0, 2);
 
-  // JSON-LD for article
+  // Word count for schema
+  const wordCount = post.content.split(/\s+/).length;
+
+  // JSON-LD for article (enhanced for 2026 SEO)
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.title,
     "description": post.description,
     "datePublished": post.date,
+    "dateModified": post.date,
+    "wordCount": wordCount,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://ownvsrent.io/blog/${post.slug}`
+    },
     "author": {
       "@type": "Organization",
-      "name": "Own vs Rent"
+      "name": "Own vs Rent",
+      "url": "https://ownvsrent.io"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Own vs Rent",
-      "url": "https://ownvsrent.io"
-    }
+      "url": "https://ownvsrent.io",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ownvsrent.io/logo.png"
+      }
+    },
+    "articleSection": BLOG_CATEGORIES[post.category].label,
+    "inLanguage": "en-US"
+  };
+
+  // JSON-LD for breadcrumbs
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ownvsrent.io"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://ownvsrent.io/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `https://ownvsrent.io/blog/${post.slug}`
+      }
+    ]
   };
 
   return (
@@ -240,6 +319,10 @@ export function BlogPostPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
         {/* Breadcrumb */}
