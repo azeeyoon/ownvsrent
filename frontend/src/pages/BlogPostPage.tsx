@@ -1,197 +1,12 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { BLOG_POSTS, BLOG_CATEGORIES } from '../data/blogPosts';
 import { AdUnit } from '../components/AdUnit';
 
 function findPost(slug: string) {
   return BLOG_POSTS.find(post => post.slug === slug);
-}
-
-// Helper to process inline formatting (bold)
-function formatInlineText(text: string, keyPrefix: string): React.ReactNode {
-  const parts: React.ReactNode[] = [];
-  let lastIndex = 0;
-  const boldRegex = /\*\*(.+?)\*\*/g;
-  let match;
-
-  while ((match = boldRegex.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index));
-    }
-    parts.push(
-      <strong key={`${keyPrefix}-bold-${match.index}`} className="font-semibold text-gray-900">
-        {match[1]}
-      </strong>
-    );
-    lastIndex = match.index + match[0].length;
-  }
-
-  if (lastIndex < text.length) {
-    parts.push(text.slice(lastIndex));
-  }
-
-  return parts.length > 0 ? parts : text;
-}
-
-// Simple markdown-to-JSX converter for blog content
-function renderContent(content: string) {
-  const lines = content.split('\n');
-  const elements: React.ReactElement[] = [];
-  let currentList: string[] = [];
-  let listType: 'ul' | 'ol' | null = null;
-  let inTable = false;
-  let tableRows: string[][] = [];
-
-  const flushList = () => {
-    if (currentList.length > 0) {
-      const ListTag = listType === 'ol' ? 'ol' : 'ul';
-      const listClass = listType === 'ol'
-        ? 'list-decimal list-inside space-y-2 my-4 text-gray-600'
-        : 'list-disc list-inside space-y-2 my-4 text-gray-600';
-      elements.push(
-        <ListTag key={elements.length} className={listClass}>
-          {currentList.map((item, i) => (
-            <li key={i}>{formatInlineText(item, `list-${elements.length}-${i}`)}</li>
-          ))}
-        </ListTag>
-      );
-      currentList = [];
-      listType = null;
-    }
-  };
-
-  const flushTable = () => {
-    if (tableRows.length > 0) {
-      const headers = tableRows[0];
-      const body = tableRows.slice(2); // Skip header and separator
-      elements.push(
-        <div key={elements.length} className="my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-sm">
-            <thead>
-              <tr>
-                {headers.map((h, i) => (
-                  <th key={i} className="px-4 py-2 bg-gray-100 text-left font-semibold text-gray-900 border border-gray-200">
-                    {h.trim()}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {body.map((row, i) => (
-                <tr key={i} className={i % 2 === 1 ? 'bg-gray-50' : ''}>
-                  {row.map((cell, j) => (
-                    <td key={j} className="px-4 py-2 border border-gray-200 text-gray-600">
-                      {cell.trim()}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      );
-      tableRows = [];
-      inTable = false;
-    }
-  };
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-
-    // Table detection
-    if (line.includes('|') && line.trim().startsWith('|')) {
-      if (!inTable) inTable = true;
-      const cells = line.split('|').filter(c => c.trim() !== '');
-      if (!line.includes('---')) {
-        tableRows.push(cells);
-      } else {
-        tableRows.push([]); // Separator placeholder
-      }
-      continue;
-    } else if (inTable) {
-      flushTable();
-    }
-
-    // Headers
-    if (line.startsWith('## ')) {
-      flushList();
-      elements.push(
-        <h2 key={elements.length} className="text-xl font-bold text-gray-900 mt-8 mb-4">
-          {line.replace('## ', '')}
-        </h2>
-      );
-      continue;
-    }
-
-    if (line.startsWith('### ')) {
-      flushList();
-      elements.push(
-        <h3 key={elements.length} className="text-lg font-semibold text-gray-900 mt-6 mb-3">
-          {line.replace('### ', '')}
-        </h3>
-      );
-      continue;
-    }
-
-    // Blockquote
-    if (line.startsWith('>')) {
-      flushList();
-      const quoteLines: string[] = [line.replace(/^>\s*/, '')];
-      while (i + 1 < lines.length && lines[i + 1].startsWith('>')) {
-        i++;
-        quoteLines.push(lines[i].replace(/^>\s*/, ''));
-      }
-      elements.push(
-        <blockquote key={elements.length} className="my-4 pl-4 border-l-4 border-blue-300 bg-blue-50 py-3 pr-4 rounded-r-lg text-gray-700 italic">
-          {quoteLines.map((l, idx) => (
-            <p key={idx} className={idx > 0 ? 'mt-2' : ''}>{l}</p>
-          ))}
-        </blockquote>
-      );
-      continue;
-    }
-
-    // Unordered list
-    if (line.startsWith('- ')) {
-      if (listType !== 'ul') {
-        flushList();
-        listType = 'ul';
-      }
-      currentList.push(line.replace('- ', ''));
-      continue;
-    }
-
-    // Ordered list
-    const orderedMatch = line.match(/^\d+\.\s/);
-    if (orderedMatch) {
-      if (listType !== 'ol') {
-        flushList();
-        listType = 'ol';
-      }
-      currentList.push(line.replace(/^\d+\.\s/, ''));
-      continue;
-    }
-
-    // Empty line
-    if (line.trim() === '') {
-      flushList();
-      continue;
-    }
-
-    // Regular paragraph
-    flushList();
-
-    elements.push(
-      <p key={elements.length} className="text-gray-600 leading-relaxed my-4">
-        {formatInlineText(line, `p-${elements.length}`)}
-      </p>
-    );
-  }
-
-  flushList();
-  flushTable();
-
-  return elements;
 }
 
 export function BlogPostPage() {
@@ -217,18 +32,28 @@ export function BlogPostPage() {
       }
       canonical.setAttribute('href', `https://ownvsrent.io/blog/${post.slug}`);
 
-      // Open Graph tags
-      const ogTags = [
+      // Image URL (use featured image or fallback to site default)
+      const imageUrl = post.featuredImage
+        ? `https://ownvsrent.io${post.featuredImage}`
+        : 'https://ownvsrent.io/og-image.png';
+
+      // Open Graph tags (including image support for social sharing)
+      const ogTags: { property?: string; name?: string; content: string }[] = [
         { property: 'og:title', content: post.title },
         { property: 'og:description', content: post.description },
         { property: 'og:type', content: 'article' },
         { property: 'og:url', content: `https://ownvsrent.io/blog/${post.slug}` },
         { property: 'og:site_name', content: 'Own vs Rent' },
+        { property: 'og:image', content: imageUrl },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: post.title },
         { property: 'article:published_time', content: post.date },
         { property: 'article:section', content: BLOG_CATEGORIES[post.category].label },
-        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: post.title },
         { name: 'twitter:description', content: post.description },
+        { name: 'twitter:image', content: imageUrl },
       ];
 
       ogTags.forEach(({ property, name, content }) => {
@@ -257,12 +82,18 @@ export function BlogPostPage() {
   // Word count for schema
   const wordCount = post.content.split(/\s+/).length;
 
+  // Image URL for schema (use featured image or fallback to site default)
+  const schemaImageUrl = post.featuredImage
+    ? `https://ownvsrent.io${post.featuredImage}`
+    : 'https://ownvsrent.io/og-image.png';
+
   // JSON-LD for article (enhanced for 2026 SEO)
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": post.title,
     "description": post.description,
+    "image": schemaImageUrl,
     "datePublished": post.date,
     "dateModified": post.date,
     "wordCount": wordCount,
@@ -358,9 +189,24 @@ export function BlogPostPage() {
           </p>
         </header>
 
+        {/* Featured Image */}
+        {post.featuredImage && (
+          <div className="mb-8 -mx-4 sm:mx-0">
+            <img
+              src={post.featuredImage}
+              alt={post.title}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto rounded-none sm:rounded-xl object-cover max-h-96"
+            />
+          </div>
+        )}
+
         {/* Content */}
-        <div className="prose prose-gray max-w-none">
-          {renderContent(post.content)}
+        <div className="prose prose-gray max-w-none prose-headings:text-gray-900 prose-h2:text-xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-600 prose-p:leading-relaxed prose-p:my-4 prose-li:text-gray-600 prose-strong:text-gray-900 prose-blockquote:border-l-4 prose-blockquote:border-blue-300 prose-blockquote:bg-blue-50 prose-blockquote:py-3 prose-blockquote:pr-4 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-table:text-sm prose-th:bg-gray-100 prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:font-semibold prose-th:border prose-th:border-gray-200 prose-td:px-4 prose-td:py-2 prose-td:border prose-td:border-gray-200 prose-img:rounded-lg prose-img:my-6 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {post.content}
+          </ReactMarkdown>
         </div>
 
         {/* Ad */}

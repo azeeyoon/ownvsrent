@@ -6,6 +6,7 @@ export interface BlogPost {
   readTime: string;
   category: 'buying' | 'renting' | 'investing' | 'tips';
   content: string;
+  featuredImage?: string; // Path like '/blog/slug/featured.jpg'
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -16,6 +17,7 @@ export const BLOG_POSTS: BlogPost[] = [
     date: '2026-02-09',
     readTime: '8 min',
     category: 'buying',
+    featuredImage: '/blog/how-to-budget-for-home-purchase/featured.jpg',
     content: `
 Buying a home is the biggest financial decision most people make, yet many jump in without a clear budget. If you're wondering how to budget for a home purchase, this guide breaks down exactly what you need to save, how long it takes, and the strategies that actually work.
 
@@ -212,6 +214,7 @@ The median homebuyer now saves for 7 years. With intentional budgeting, you can 
     date: '2026-02-09',
     readTime: '6 min',
     category: 'buying',
+    featuredImage: '/blog/hidden-costs-of-homeownership/featured.jpg',
     content: `
 When you're calculating whether to buy a home, it's tempting to compare your mortgage payment to your rent. But that comparison misses a lot. Here are the costs that surprise most first-time homeowners.
 
@@ -291,6 +294,7 @@ Then compare that to renting + investing the difference. Our calculator does thi
     date: '2026-02-08',
     readTime: '7 min',
     category: 'buying',
+    featuredImage: '/blog/first-time-homebuyer-mistakes/featured.jpg',
     content: `
 Buying your first home is exciting, but it's also when you're most vulnerable to costly mistakes. Here are the ones I see most often.
 
@@ -379,6 +383,7 @@ Use our calculator to understand the true cost before you start shopping, and yo
     date: '2026-02-07',
     readTime: '5 min',
     category: 'renting',
+    featuredImage: '/blog/how-to-negotiate-rent/featured.jpg',
     content: `
 Most renters never try to negotiate. That's a mistake — landlords expect it, especially for lease renewals. Here's how to do it effectively.
 
@@ -453,6 +458,7 @@ The worst they can say is no. And if you're a good tenant, they probably won't s
     date: '2026-02-06',
     readTime: '8 min',
     category: 'investing',
+    featuredImage: '/blog/when-does-buying-make-sense/featured.jpg',
     content: `
 "Renting is throwing money away" is terrible advice. So is "buying is always better long-term." The truth is situational. Here's a framework to think through it clearly.
 
@@ -557,6 +563,7 @@ Run the numbers with our calculator, then let your lifestyle preferences break t
     date: '2026-02-05',
     readTime: '4 min',
     category: 'investing',
+    featuredImage: '/blog/rent-vs-buy-5-percent-rule/featured.jpg',
     content: `
 The 5% Rule is a quick way to estimate whether renting or buying is cheaper, without running a full calculation. Here's how it works.
 
