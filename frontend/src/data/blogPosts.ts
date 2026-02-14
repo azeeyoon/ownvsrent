@@ -11,6 +11,181 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'buy-now-or-wait-for-rates-to-drop',
+    title: 'Should You Buy a House Now or Wait for Rates to Drop?',
+    description: 'Mortgage rates are at 6% in 2026. Should you buy now or wait? Here\'s the math on timing the market vs. buying when you\'re ready.',
+    date: '2026-02-13',
+    readTime: '7 min',
+    category: 'buying',
+    featuredImage: '/blog/buy-now-or-wait-for-rates-to-drop/featured.jpg',
+    content: `
+"Should I wait for mortgage rates to drop?" It's the question on every prospective homebuyer's mind in 2026. With rates hovering around 6%, it's tempting to hold off for a better deal.
+
+Here's the honest answer: **Trying to time the mortgage market is nearly impossible, and waiting often costs more than it saves.** But the right decision depends on your specific situation—not what experts predict rates will do.
+
+## Where Mortgage Rates Stand in 2026
+
+As of February 2026, the 30-year fixed mortgage rate sits around 6.09%—the lowest we've seen in three years. After peaking above 7.5% in late 2023, rates have gradually declined.
+
+But here's what the forecasts say about where rates are headed:
+
+| Source | End of 2026 Prediction |
+|--------|------------------------|
+| Mortgage Bankers Association | 6.4% |
+| Fannie Mae | 6.0% |
+| Bankrate | 5.9-6.3% |
+| Redfin | 6.3% average |
+
+The consensus: **rates will hover between 5.9% and 6.4% through 2026.** Nobody is predicting a dramatic drop to 4% or 5%. The days of 3% mortgages are likely gone for good.
+
+> **Key takeaway:** If you're waiting for rates to fall to 5% or below, you could be waiting for years—possibly a decade or more.
+
+## The Hidden Cost of Waiting
+
+Waiting for lower rates sounds smart, but it ignores a crucial factor: **home prices don't wait for you.**
+
+Here's the math that most people miss:
+
+### Scenario: Wait One Year for Lower Rates
+
+Let's say you're looking at a $425,000 home today (close to the U.S. median). You could buy now at 6.0%, or wait a year hoping rates drop to 5.5%.
+
+**If home prices rise 3% while you wait:**
+
+| | Buy Now | Wait 1 Year |
+|---|---------|-------------|
+| Home price | $425,000 | $437,750 |
+| Down payment (20%) | $85,000 | $87,550 |
+| Loan amount | $340,000 | $350,200 |
+| Interest rate | 6.0% | 5.5% |
+| Monthly P&I | $2,038 | $1,989 |
+| Monthly savings | — | $49 |
+
+You'd save $49/month—but you'd need an extra $2,550 for the down payment, and you'd owe $10,200 more in principal. That $49 monthly savings takes **17 years** just to break even on the higher purchase price.
+
+And that assumes rates actually drop by 0.5%. They might not.
+
+## The "Marry the House, Date the Rate" Strategy
+
+You've probably heard this phrase: buy the home you love now, then refinance when rates drop.
+
+It's solid advice—with one major caveat: **you must be able to afford the payment at today's rates.**
+
+Here's why this strategy works:
+
+- You can always refinance to a lower rate later (typically when rates drop 1%+ below your current rate)
+- You can't go back in time to buy at a lower price
+- Waiting means competing with other buyers when rates do drop
+
+But the strategy fails if:
+
+- You're stretching your budget and counting on refinancing for relief
+- Refinancing costs eat up your savings (expect $3,000-6,000 in closing costs)
+- Rates don't drop significantly within your timeline
+
+> **Reality check:** Nearly two-thirds of millennial and Gen Z buyers say refinancing is "important to their financial health." But most experts say rates won't drop meaningfully in the next 1-2 years. Don't buy a home you can't afford today.
+
+## What Happens When Rates Drop?
+
+Here's something few buyers consider: when rates drop, competition heats up.
+
+Think about it—every buyer who's been waiting on the sidelines will suddenly flood the market. That means:
+
+- More bidding wars
+- Fewer negotiation opportunities
+- Sellers raising prices
+- Faster appreciation erasing your rate savings
+
+Redfin predicts 2026 will be the "most balanced housing market since the pandemic." That balance exists *because* rates are keeping some buyers away. Lower rates change that equation fast.
+
+## When Waiting Actually Makes Sense
+
+Timing the market is generally a bad idea. But sometimes waiting is the right call—just not because of rates.
+
+**Wait if:**
+
+- You have less than 6 months of emergency savings after closing
+- Your job situation is unstable
+- You're not sure you'll stay in the area 5+ years
+- You haven't shopped for the best mortgage rate yet (this matters more than market timing)
+- Your debt-to-income ratio is above 40%
+
+**Don't wait if:**
+
+- You're financially ready and found a home you love
+- You're waiting for "perfect" conditions that may never come
+- You've been renting and watching prices climb
+- You can comfortably afford payments at current rates
+
+## The Math: Buy Now vs. Wait
+
+Let's run a more detailed comparison using realistic 2026 numbers.
+
+**Assumptions:**
+- Target home: $425,000
+- Down payment: 20% ($85,000)
+- Current rate: 6.0%
+- Potential future rate: 5.5% (optimistic)
+- Home appreciation: 3% annually
+- Your rent while waiting: $2,200/month
+
+**Scenario A: Buy Now**
+
+- Purchase price: $425,000
+- Monthly payment (P&I): $2,038
+- Total paid in year 1: $24,456
+- Home value after 1 year: $437,750
+- Equity gained: ~$13,000 (appreciation + principal paydown)
+
+**Scenario B: Wait One Year**
+
+- Rent paid while waiting: $26,400
+- New purchase price: $437,750
+- New monthly payment at 5.5%: $1,989
+- Equity position after same timeframe: Started 1 year behind
+
+In Scenario B, you spent $26,400 on rent, need a larger down payment, and bought a more expensive house. Even with a lower rate, you're behind—and that's assuming rates actually dropped.
+
+Use our [rent vs. buy calculator](/) to run these numbers with your actual situation. It factors in appreciation, opportunity cost, and exactly how long you'd need to stay to break even.
+
+## The Refinance Reality
+
+Counting on refinancing? Here's what you need to know:
+
+**The 1% rule:** Refinancing typically makes sense when you can drop your rate by at least 1 percentage point. With rates around 6% today, you'd need rates to fall to 5% before refinancing pays off—and experts don't see that happening in 2026.
+
+**Refinancing costs money:** Expect to pay 2-5% of your loan in closing costs ($6,000-$17,000 on a $340,000 mortgage). You'll need to stay in the home long enough to recoup those costs.
+
+**You must qualify again:** Your income, credit, and home value will be re-evaluated. If home values drop or your financial situation changes, refinancing might not be an option.
+
+## What the Experts Actually Say
+
+"Timing the market is nearly impossible. Instead of focusing on market timing, base your decision on your personal and financial readiness."
+
+This sums up the consensus among housing economists in 2026. The "perfect" time to buy rarely arrives when you expect it.
+
+NAR predicts home prices will rise 4% in 2026. Zillow expects 1.2% appreciation. Even at the conservative end, waiting costs you money in a rising market.
+
+## The Bottom Line
+
+Stop trying to time mortgage rates. Here's what actually matters:
+
+1. **Can you afford the payment today?** Don't buy at current rates if you're counting on refinancing for affordability.
+
+2. **Will you stay 5+ years?** Short-term ownership rarely pays off regardless of rates.
+
+3. **Have you shopped for the best rate?** A 0.25% difference between lenders matters more than waiting months for market shifts.
+
+4. **Is your financial house in order?** Emergency fund, stable income, manageable debt—these matter more than rate timing.
+
+If you're ready to buy, buy. If rates drop later, refinance. If prices rise while you wait, you'll wish you hadn't.
+
+---
+
+**Ready to see the real numbers?** Our [rent vs. buy calculator](/) runs a month-by-month simulation comparing buying now versus waiting. Enter your actual numbers—home price, current rent, down payment—and see exactly what makes sense for your situation.
+    `.trim(),
+  },
+  {
     slug: 'is-renting-throwing-money-away',
     title: 'Is Renting Throwing Money Away? The 2026 Reality',
     description: 'The "renting is throwing money away" myth debunked with real math. See when renting actually beats buying and run your own numbers.',
