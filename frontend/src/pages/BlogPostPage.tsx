@@ -10,64 +10,73 @@ function findPost(slug: string) {
   return BLOG_POSTS.find(post => post.slug === slug);
 }
 
-// Custom components for ReactMarkdown styling
+// Custom components for ReactMarkdown styling - Modern 2026 blog design
 const markdownComponents: Components = {
   h2: ({ children }) => (
-    <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">{children}</h2>
+    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-14 mb-6 tracking-tight">{children}</h2>
   ),
   h3: ({ children }) => (
-    <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-3">{children}</h3>
+    <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mt-10 mb-4">{children}</h3>
   ),
   p: ({ children }) => (
-    <p className="text-gray-600 leading-relaxed my-4">{children}</p>
+    <p className="text-gray-700 text-lg leading-[1.8] my-6">{children}</p>
   ),
   ul: ({ children }) => (
-    <ul className="list-disc list-outside ml-6 space-y-2 my-4 text-gray-600">{children}</ul>
+    <ul className="my-6 space-y-3">{children}</ul>
   ),
   ol: ({ children }) => (
-    <ol className="list-decimal list-outside ml-6 space-y-2 my-4 text-gray-600">{children}</ol>
+    <ol className="my-6 space-y-3 list-none counter-reset-item">{children}</ol>
   ),
   li: ({ children }) => (
-    <li className="leading-relaxed">{children}</li>
+    <li className="text-gray-700 text-lg leading-[1.8] flex items-start gap-3">
+      <span className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-3"></span>
+      <span>{children}</span>
+    </li>
   ),
   strong: ({ children }) => (
-    <strong className="font-semibold text-gray-900">{children}</strong>
+    <strong className="font-bold text-gray-900">{children}</strong>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="my-6 pl-4 border-l-4 border-blue-300 bg-blue-50 py-4 pr-4 rounded-r-lg text-gray-700 italic">
+    <blockquote className="my-8 pl-6 border-l-4 border-blue-500 bg-gradient-to-r from-blue-50 to-transparent py-6 pr-6 rounded-r-xl text-gray-700 text-lg italic">
       {children}
     </blockquote>
   ),
   a: ({ href, children }) => (
-    <a href={href} className="text-blue-600 hover:text-blue-700 hover:underline font-medium">
+    <a
+      href={href}
+      className="text-blue-600 hover:text-blue-700 underline decoration-blue-200 hover:decoration-blue-500 underline-offset-2 transition-colors font-medium"
+    >
       {children}
     </a>
   ),
   table: ({ children }) => (
-    <div className="my-6 overflow-x-auto rounded-lg border border-gray-200">
-      <table className="w-full border-collapse text-sm">{children}</table>
+    <div className="my-8 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
+      <table className="w-full border-collapse">{children}</table>
     </div>
   ),
   thead: ({ children }) => (
-    <thead className="bg-gray-50">{children}</thead>
+    <thead className="bg-gray-50 border-b border-gray-200">{children}</thead>
   ),
   th: ({ children }) => (
-    <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">{children}</th>
+    <th className="px-5 py-4 text-left font-semibold text-gray-900 text-sm uppercase tracking-wide">{children}</th>
   ),
   td: ({ children }) => (
-    <td className="px-4 py-3 border-b border-gray-100 text-gray-600">{children}</td>
+    <td className="px-5 py-4 text-gray-700 border-b border-gray-100">{children}</td>
   ),
   tr: ({ children }) => (
-    <tr className="hover:bg-gray-50 transition-colors">{children}</tr>
+    <tr className="hover:bg-gray-50/50 transition-colors">{children}</tr>
   ),
   img: ({ src, alt }) => (
-    <img src={src} alt={alt} className="rounded-xl my-6 w-full h-auto shadow-sm" loading="lazy" />
+    <figure className="my-10">
+      <img src={src} alt={alt} className="rounded-2xl w-full h-auto shadow-lg" loading="lazy" />
+      {alt && <figcaption className="text-center text-gray-500 text-sm mt-3 italic">{alt}</figcaption>}
+    </figure>
   ),
   hr: () => (
-    <hr className="my-8 border-gray-200" />
+    <hr className="my-12 border-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
   ),
   code: ({ children }) => (
-    <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">{children}</code>
+    <code className="bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-sm font-mono border border-gray-200">{children}</code>
   ),
 };
 
@@ -217,22 +226,27 @@ export function BlogPostPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+      <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-gray-500 mb-6">
-          <Link to="/" className="hover:text-gray-700">Home</Link>
-          <span>/</span>
-          <Link to="/blog" className="hover:text-gray-700">Blog</Link>
-          <span>/</span>
-          <span className="text-gray-900 truncate">{post.title}</span>
+        <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
+          <Link to="/" className="hover:text-gray-600 transition-colors">Home</Link>
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+          </svg>
+          <Link to="/blog" className="hover:text-gray-600 transition-colors">Blog</Link>
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+          </svg>
+          <span className="text-gray-600 truncate max-w-[200px]">{post.title}</span>
         </nav>
 
         {/* Header */}
-        <header className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className={`px-2.5 py-1 text-xs font-medium rounded-full ${BLOG_CATEGORIES[post.category].color}`}>
+        <header className="mb-10 md:mb-12">
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <span className={`px-3 py-1.5 text-xs font-semibold rounded-full ${BLOG_CATEGORIES[post.category].color}`}>
               {BLOG_CATEGORIES[post.category].label}
             </span>
+            <span className="text-sm text-gray-400">•</span>
             <span className="text-sm text-gray-500">{post.readTime} read</span>
             <span className="text-sm text-gray-400">•</span>
             <time className="text-sm text-gray-500">
@@ -243,23 +257,23 @@ export function BlogPostPage() {
               })}
             </time>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
             {post.title}
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light">
             {post.description}
           </p>
         </header>
 
         {/* Featured Image */}
         {post.featuredImage && (
-          <div className="mb-8 -mx-4 sm:mx-0">
+          <div className="mb-12 -mx-4 sm:mx-0">
             <img
               src={post.featuredImage}
               alt={post.title}
-              loading="lazy"
+              loading="eager"
               decoding="async"
-              className="w-full h-auto rounded-none sm:rounded-xl object-cover max-h-96"
+              className="w-full h-auto rounded-none sm:rounded-2xl object-cover max-h-[500px] shadow-lg"
             />
           </div>
         )}
@@ -272,42 +286,54 @@ export function BlogPostPage() {
         </div>
 
         {/* Ad */}
-        <div className="my-10 flex justify-center">
+        <div className="my-14 flex justify-center">
           <AdUnit slot="9767282879" format="in-article" />
         </div>
 
         {/* CTA */}
-        <div className="my-10 p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl text-center">
-          <h3 className="text-xl font-semibold text-white mb-3">
-            Run Your Own Numbers
-          </h3>
-          <p className="text-gray-300 mb-6">
-            See exactly when buying beats renting for your specific situation.
-          </p>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-medium rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            Use the Calculator
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+        <div className="my-14 p-8 md:p-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.1),_transparent_50%)]"></div>
+          <div className="relative">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Run Your Own Numbers
+            </h3>
+            <p className="text-gray-300 mb-8 text-lg max-w-md mx-auto">
+              See exactly when buying beats renting for your specific situation.
+            </p>
+            <Link
+              to="/"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-all hover:scale-105 shadow-lg"
+            >
+              Use the Calculator
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Related Articles</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mt-16 pt-12 border-t border-gray-100">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">Continue Reading</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedPosts.map((related) => (
                 <Link
                   key={related.slug}
                   to={`/blog/${related.slug}`}
-                  className="p-4 border border-gray-200 rounded-xl hover:border-gray-300 hover:shadow-sm transition-all"
+                  className="group p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all"
                 >
-                  <h4 className="font-medium text-gray-900 mb-1">{related.title}</h4>
-                  <p className="text-sm text-gray-600 line-clamp-2">{related.description}</p>
+                  {related.featuredImage && (
+                    <div className="mb-4 rounded-xl overflow-hidden">
+                      <img
+                        src={related.featuredImage}
+                        alt={related.title}
+                        className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{related.title}</h4>
+                  <p className="text-sm text-gray-500 line-clamp-2">{related.description}</p>
                 </Link>
               ))}
             </div>
