@@ -31,7 +31,7 @@ export function PrivacyPage() {
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Last updated: February 8, 2026
+              Last updated: February 13, 2026
             </span>
           </div>
         </div>
@@ -160,17 +160,77 @@ export function PrivacyPage() {
               </span>
               <h2 className="text-2xl font-bold text-gray-900 m-0">Advertising</h2>
             </div>
-            <div className="pl-14">
+            <div className="pl-14 space-y-4">
               <p className="text-gray-600 leading-relaxed">
-                We display advertisements through Google AdSense. Google and its partners may use cookies to serve ads based on your prior visits to this or other websites. You can opt out of personalized advertising by visiting{' '}
-                <a
-                  href="https://www.google.com/settings/ads"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-700 font-medium"
-                >
-                  Google's Ads Settings
-                </a>.
+                We display advertisements through Google AdSense to support the free operation of this website.
+              </p>
+              <div className="bg-amber-50 rounded-xl p-6 border border-amber-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">How Google Uses Cookies for Advertising</h3>
+                <ul className="list-none text-gray-600 space-y-2 m-0">
+                  <li className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Third-party vendors, including Google, use cookies to serve ads based on your prior visits to this website or other websites on the Internet.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Google's use of advertising cookies enables it and its partners to serve ads based on your browsing history.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg className="w-4 h-4 text-amber-500 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>These cookies do not collect personally identifiable information.</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Opt-Out Options</h3>
+                <p className="text-gray-600 mb-3">You may opt out of personalized advertising at any time:</p>
+                <ul className="list-none text-gray-600 space-y-2 m-0">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-500">→</span>
+                    <a
+                      href="https://www.google.com/settings/ads"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 font-medium"
+                    >
+                      Google Ads Settings
+                    </a>
+                    <span className="text-gray-500">— Manage Google's ad personalization</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-500">→</span>
+                    <a
+                      href="https://www.aboutads.info/choices/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 font-medium"
+                    >
+                      AboutAds.info
+                    </a>
+                    <span className="text-gray-500">— Opt out of interest-based advertising</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-500">→</span>
+                    <a
+                      href="https://www.networkadvertising.org/choices/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-700 font-medium"
+                    >
+                      Network Advertising Initiative
+                    </a>
+                    <span className="text-gray-500">— Consumer opt-out page</span>
+                  </li>
+                </ul>
+              </div>
+              <p className="text-gray-500 text-sm">
+                For users in the European Economic Area (EEA) or United Kingdom: We comply with GDPR requirements and will request your consent before using cookies for advertising purposes.
               </p>
             </div>
           </section>
@@ -271,7 +331,11 @@ export function PrivacyPage() {
             </div>
             <div className="pl-14">
               <p className="text-gray-600 leading-relaxed">
-                If you have questions about this Privacy Policy, please contact us through our GitHub repository.
+                If you have questions about this Privacy Policy, please visit our{' '}
+                <Link to="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
+                  Contact page
+                </Link>{' '}
+                or reach out via our GitHub repository.
               </p>
             </div>
           </section>

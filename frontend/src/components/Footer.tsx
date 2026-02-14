@@ -60,10 +60,20 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Company */}
           <div>
-            <h4 className="font-semibold text-gray-900 mb-3">Legal</h4>
+            <h4 className="font-semibold text-gray-900 mb-3">Company</h4>
             <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/about" className="text-gray-500 hover:text-gray-700">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-500 hover:text-gray-700">
+                  Contact
+                </Link>
+              </li>
               <li>
                 <Link to="/privacy" className="text-gray-500 hover:text-gray-700">
                   Privacy Policy
