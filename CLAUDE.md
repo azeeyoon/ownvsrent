@@ -16,6 +16,7 @@
 
 | Date | Change |
 |------|--------|
+| 2026-02-13 | Added Table of Contents to blog posts (H2 headings only), updated skill with blog format guidelines |
 | 2026-02-10 | Added blog image support: featured images, OG/Twitter meta tags, `/fetch-blog-image` skill |
 | 2026-02-09 | Updated CLAUDE.md to reflect actual Vite + React Router architecture |
 | 2026-02-09 | Added SEO enhancements to blog pages (canonical URLs, Open Graph, BreadcrumbList schema, enhanced Article schema) |
@@ -45,6 +46,39 @@
 - BlogPostPage renders hero image and includes og:image/twitter:image meta tags
 - BlogIndexPage shows thumbnails with category-colored placeholder fallbacks
 - Uses react-markdown with remark-gfm for inline image support in content
+
+### Blog Post Format (2026 Modern Design)
+
+Blog posts are rendered in `BlogPostPage.tsx` using ReactMarkdown with custom styled components.
+
+**Automatic Features:**
+- **Table of Contents**: Auto-generated from H2 headings (shows if 3+ headings)
+- **Anchor IDs**: H2/H3 headings get slugified IDs for deep linking
+- **Smooth scrolling**: TOC links scroll smoothly with `scroll-mt-20` offset
+
+**Markdown Rendering (custom components in `createMarkdownComponents()`):**
+
+| Element | Tailwind Classes |
+|---------|------------------|
+| H2 | `text-2xl md:text-3xl font-bold text-gray-900 mt-14 mb-6 tracking-tight scroll-mt-20` |
+| H3 | `text-xl md:text-2xl font-semibold text-gray-900 mt-10 mb-4 scroll-mt-20` |
+| p | `text-gray-700 text-lg leading-[1.8] my-6` |
+| ul/li | Blue dot bullet (`w-2 h-2 bg-blue-500 rounded-full`), `gap-3` |
+| blockquote | Blue left border, gradient bg `from-blue-50`, rounded-r-xl, italic |
+| a | `text-blue-600 hover:text-blue-700 underline decoration-blue-200` |
+| table | Rounded border, shadow-sm, hover row highlight |
+| img | `rounded-2xl shadow-lg`, figcaption from alt text |
+| hr | Gradient fade line `via-gray-300`, `my-12` |
+| code | `bg-gray-100 text-gray-800 px-2 py-1 rounded-md font-mono border` |
+
+**Content Writing Guidelines:**
+1. Use **4-6 H2 headings** for main sections (appear in TOC)
+2. Use H3 sparingly for subsections (won't appear in TOC)
+3. Keep paragraphs to **2-4 sentences** for readability
+4. Use **blockquotes** for key takeaways or callouts
+5. Include **tables** for comparisons (rent vs buy, pros/cons)
+6. Add **horizontal rules** (`---`) to separate major topic shifts
+7. Always include a **CTA linking to calculator** (`/`)
 
 ---
 
