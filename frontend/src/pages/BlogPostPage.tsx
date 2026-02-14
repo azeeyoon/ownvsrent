@@ -18,25 +18,22 @@ function slugify(text: string): string {
     .replace(/(^-|-$)/g, '');
 }
 
-// Extract headings from markdown content
+// Extract H2 headings from markdown content for TOC
 interface TocItem {
   id: string;
   text: string;
-  level: 2 | 3;
 }
 
 function extractHeadings(content: string): TocItem[] {
-  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+  const headingRegex = /^##\s+(.+)$/gm;
   const headings: TocItem[] = [];
   let match;
 
   while ((match = headingRegex.exec(content)) !== null) {
-    const level = match[1].length as 2 | 3;
-    const text = match[2].trim();
+    const text = match[1].trim();
     headings.push({
       id: slugify(text),
       text,
-      level,
     });
   }
 
@@ -80,10 +77,7 @@ function TableOfContents({ headings }: { headings: TocItem[] }) {
       {isOpen && (
         <ul className="mt-4 space-y-2">
           {headings.map((heading, index) => (
-            <li
-              key={index}
-              className={heading.level === 3 ? 'ml-4' : ''}
-            >
+            <li key={index}>
               <button
                 onClick={() => scrollToSection(heading.id)}
                 className="text-left text-gray-600 hover:text-blue-600 transition-colors text-sm leading-relaxed hover:underline"
