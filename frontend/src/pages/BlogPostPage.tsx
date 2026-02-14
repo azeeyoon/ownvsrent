@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { BLOG_POSTS, BLOG_CATEGORIES } from '../data/blogPosts';
 import { AdUnit } from '../components/AdUnit';
@@ -8,6 +9,67 @@ import { AdUnit } from '../components/AdUnit';
 function findPost(slug: string) {
   return BLOG_POSTS.find(post => post.slug === slug);
 }
+
+// Custom components for ReactMarkdown styling
+const markdownComponents: Components = {
+  h2: ({ children }) => (
+    <h2 className="text-xl font-bold text-gray-900 mt-10 mb-4">{children}</h2>
+  ),
+  h3: ({ children }) => (
+    <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-3">{children}</h3>
+  ),
+  p: ({ children }) => (
+    <p className="text-gray-600 leading-relaxed my-4">{children}</p>
+  ),
+  ul: ({ children }) => (
+    <ul className="list-disc list-outside ml-6 space-y-2 my-4 text-gray-600">{children}</ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal list-outside ml-6 space-y-2 my-4 text-gray-600">{children}</ol>
+  ),
+  li: ({ children }) => (
+    <li className="leading-relaxed">{children}</li>
+  ),
+  strong: ({ children }) => (
+    <strong className="font-semibold text-gray-900">{children}</strong>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="my-6 pl-4 border-l-4 border-blue-300 bg-blue-50 py-4 pr-4 rounded-r-lg text-gray-700 italic">
+      {children}
+    </blockquote>
+  ),
+  a: ({ href, children }) => (
+    <a href={href} className="text-blue-600 hover:text-blue-700 hover:underline font-medium">
+      {children}
+    </a>
+  ),
+  table: ({ children }) => (
+    <div className="my-6 overflow-x-auto rounded-lg border border-gray-200">
+      <table className="w-full border-collapse text-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="bg-gray-50">{children}</thead>
+  ),
+  th: ({ children }) => (
+    <th className="px-4 py-3 text-left font-semibold text-gray-900 border-b border-gray-200">{children}</th>
+  ),
+  td: ({ children }) => (
+    <td className="px-4 py-3 border-b border-gray-100 text-gray-600">{children}</td>
+  ),
+  tr: ({ children }) => (
+    <tr className="hover:bg-gray-50 transition-colors">{children}</tr>
+  ),
+  img: ({ src, alt }) => (
+    <img src={src} alt={alt} className="rounded-xl my-6 w-full h-auto shadow-sm" loading="lazy" />
+  ),
+  hr: () => (
+    <hr className="my-8 border-gray-200" />
+  ),
+  code: ({ children }) => (
+    <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">{children}</code>
+  ),
+};
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -203,8 +265,8 @@ export function BlogPostPage() {
         )}
 
         {/* Content */}
-        <div className="prose prose-gray max-w-none prose-headings:text-gray-900 prose-h2:text-xl prose-h2:font-bold prose-h2:mt-8 prose-h2:mb-4 prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3 prose-p:text-gray-600 prose-p:leading-relaxed prose-p:my-4 prose-li:text-gray-600 prose-strong:text-gray-900 prose-blockquote:border-l-4 prose-blockquote:border-blue-300 prose-blockquote:bg-blue-50 prose-blockquote:py-3 prose-blockquote:pr-4 prose-blockquote:rounded-r-lg prose-blockquote:not-italic prose-table:text-sm prose-th:bg-gray-100 prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:font-semibold prose-th:border prose-th:border-gray-200 prose-td:px-4 prose-td:py-2 prose-td:border prose-td:border-gray-200 prose-img:rounded-lg prose-img:my-6 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        <div className="max-w-none">
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
             {post.content}
           </ReactMarkdown>
         </div>
