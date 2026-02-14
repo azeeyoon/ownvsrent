@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import type { Components } from 'react-markdown';
@@ -10,14 +10,115 @@ function findPost(slug: string) {
   return BLOG_POSTS.find(post => post.slug === slug);
 }
 
+// Generate URL-friendly slug from heading text
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+// Extract headings from markdown content
+interface TocItem {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
+function extractHeadings(content: string): TocItem[] {
+  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+  const headings: TocItem[] = [];
+  let match;
+
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length as 2 | 3;
+    const text = match[2].trim();
+    headings.push({
+      id: slugify(text),
+      text,
+      level,
+    });
+  }
+
+  return headings;
+}
+
+// Table of Contents component
+function TableOfContents({ headings }: { headings: TocItem[] }) {
+  const [isOpen, setIsOpen] = useState(true);
+
+  if (headings.length < 3) return null;
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  return (
+    <nav className="my-8 p-6 bg-gray-50 rounded-2xl border border-gray-100">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between w-full text-left"
+      >
+        <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+          <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
+          </svg>
+          Table of Contents
+        </h2>
+        <svg
+          className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      {isOpen && (
+        <ul className="mt-4 space-y-2">
+          {headings.map((heading, index) => (
+            <li
+              key={index}
+              className={heading.level === 3 ? 'ml-4' : ''}
+            >
+              <button
+                onClick={() => scrollToSection(heading.id)}
+                className="text-left text-gray-600 hover:text-blue-600 transition-colors text-sm leading-relaxed hover:underline"
+              >
+                {heading.text}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </nav>
+  );
+}
+
 // Custom components for ReactMarkdown styling - Modern 2026 blog design
-const markdownComponents: Components = {
-  h2: ({ children }) => (
-    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-14 mb-6 tracking-tight">{children}</h2>
-  ),
-  h3: ({ children }) => (
-    <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mt-10 mb-4">{children}</h3>
-  ),
+// Note: We need to create these dynamically to generate anchor IDs
+const createMarkdownComponents = (): Components => ({
+  h2: ({ children }) => {
+    const text = typeof children === 'string' ? children : String(children);
+    const id = slugify(text);
+    return (
+      <h2 id={id} className="text-2xl md:text-3xl font-bold text-gray-900 mt-14 mb-6 tracking-tight scroll-mt-20">
+        {children}
+      </h2>
+    );
+  },
+  h3: ({ children }) => {
+    const text = typeof children === 'string' ? children : String(children);
+    const id = slugify(text);
+    return (
+      <h3 id={id} className="text-xl md:text-2xl font-semibold text-gray-900 mt-10 mb-4 scroll-mt-20">
+        {children}
+      </h3>
+    );
+  },
   p: ({ children }) => (
     <p className="text-gray-700 text-lg leading-[1.8] my-6">{children}</p>
   ),
@@ -78,11 +179,20 @@ const markdownComponents: Components = {
   code: ({ children }) => (
     <code className="bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-sm font-mono border border-gray-200">{children}</code>
   ),
-};
+});
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? findPost(slug) : undefined;
+
+  // Extract headings for TOC
+  const headings = useMemo(() => {
+    if (!post) return [];
+    return extractHeadings(post.content);
+  }, [post]);
+
+  // Memoize markdown components
+  const markdownComponents = useMemo(() => createMarkdownComponents(), []);
 
   useEffect(() => {
     if (post) {
@@ -267,7 +377,7 @@ export function BlogPostPage() {
 
         {/* Featured Image */}
         {post.featuredImage && (
-          <div className="mb-12 -mx-4 sm:mx-0">
+          <div className="mb-8 -mx-4 sm:mx-0">
             <img
               src={post.featuredImage}
               alt={post.title}
@@ -277,6 +387,9 @@ export function BlogPostPage() {
             />
           </div>
         )}
+
+        {/* Table of Contents */}
+        <TableOfContents headings={headings} />
 
         {/* Content */}
         <div className="max-w-none">
