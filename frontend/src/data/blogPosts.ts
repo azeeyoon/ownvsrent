@@ -11,6 +11,170 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'how-much-house-can-i-afford',
+    title: 'How Much House Can I Afford? 2026 Affordability Guide',
+    description: 'Use the 28/36 rule and real 2026 data to calculate how much house you can actually afford. Avoid becoming house poor with this guide.',
+    date: '2026-02-14',
+    readTime: '8 min',
+    category: 'buying',
+    featuredImage: '/blog/how-much-house-can-i-afford/featured.jpg',
+    content: `
+"How much house can I afford?" It's the first question every homebuyer asks—and the one most people get wrong. The bank will tell you one number. Financial reality often tells you another.
+
+Here's the honest answer: **You can afford a house where the payment fits comfortably within your budget, leaves room for savings, and doesn't make you "house poor."** That's not a dollar amount—it's a framework. Let's break down exactly how to calculate your number.
+
+## The 28/36 Rule: Your Starting Point
+
+Financial advisors and mortgage lenders use the 28/36 rule as the gold standard for housing affordability. It's simple:
+
+- **28% rule:** Your monthly housing costs (mortgage, taxes, insurance) should not exceed 28% of your gross monthly income.
+- **36% rule:** Your total monthly debt payments (housing + car loans + student loans + credit cards) should not exceed 36% of your gross monthly income.
+
+Let's see what this looks like in practice:
+
+| Annual Income | Gross Monthly | Max Housing (28%) | Max Total Debt (36%) |
+|--------------|---------------|-------------------|----------------------|
+| $75,000 | $6,250 | $1,750 | $2,250 |
+| $100,000 | $8,333 | $2,333 | $3,000 |
+| $150,000 | $12,500 | $3,500 | $4,500 |
+| $200,000 | $16,667 | $4,667 | $6,000 |
+
+If you earn $100,000 per year, the 28% rule says your maximum monthly housing payment should be $2,333. That includes principal, interest, property taxes, and insurance (PITI)—not just the mortgage payment.
+
+> **Important:** This is gross income (before taxes), not take-home pay. Your actual paycheck is 20-30% lower, which is why these percentages feel tight in practice.
+
+## From Monthly Payment to Home Price
+
+Once you know your maximum monthly payment, you can work backward to find your price range. With today's mortgage rates around 6% for a 30-year fixed loan, here's what different payments buy:
+
+| Monthly Payment | Home Price (20% down) | Home Price (10% down) |
+|----------------|----------------------|----------------------|
+| $1,750 | ~$290,000 | ~$260,000 |
+| $2,333 | ~$390,000 | ~$350,000 |
+| $3,500 | ~$580,000 | ~$520,000 |
+| $4,667 | ~$775,000 | ~$695,000 |
+
+These estimates include property taxes (1.1% national average) and insurance (~$175/month). Your actual affordability depends on your local tax rates, insurance costs, and down payment size.
+
+## The 2.5-3x Income Rule of Thumb
+
+Want a quick estimate? Multiply your annual household income by 2.5 to 3. That's a reasonable home price range.
+
+- **$80,000 income → $200,000-$240,000 home**
+- **$100,000 income → $250,000-$300,000 home**
+- **$150,000 income → $375,000-$450,000 home**
+
+This rule worked well when mortgage rates were 4%. At today's 6% rates, you may need to adjust toward the lower end—closer to 2.5x—to stay comfortable.
+
+> **Reality check:** The median U.S. household income is around $83,000, while the median home price exceeds $400,000. That's nearly 5x income. No wonder 27% of homeowners are considered "house poor."
+
+## What Lenders Will Actually Approve
+
+Here's where things get tricky. Lenders often approve you for more than you should spend.
+
+Most conventional loans allow a debt-to-income (DTI) ratio up to **43-45%**—significantly higher than the 36% guideline. FHA loans can go even higher. VA loans cap at 41%.
+
+Just because you're approved for a $450,000 mortgage doesn't mean you should take it. Lenders don't account for:
+
+- Retirement savings (you should target 15% of income)
+- Emergency fund contributions
+- Kids' education savings
+- Travel and lifestyle spending
+- Future career changes or income disruptions
+
+**The bank's number is the maximum you could pay. Your number should be the maximum you should pay.**
+
+## How to Avoid Becoming House Poor
+
+Being "house poor" means your housing costs consume so much income that you can't save, invest, or enjoy life. Over 27% of American homeowners fall into this category—spending more than 30% of income on housing.
+
+Here's how to avoid it:
+
+**1. Use take-home pay, not gross income.** A safer version of the 28% rule: keep housing costs under 28% of your *net* monthly income. If you take home $6,000/month, that's $1,680 max for housing.
+
+**2. Account for ALL housing costs.** Your mortgage payment isn't your total cost. Add:
+- Property taxes: 0.5-2.5% of home value annually
+- Homeowner's insurance: $1,500-$4,000/year
+- Maintenance: 1-2% of home value annually
+- HOA fees: $0-$500+/month
+- PMI: 0.5-1% of loan annually (if under 20% down)
+
+**3. Leave margin for life.** If you're maxing out the 28% rule, you have no buffer for:
+- Interest rate increases (if you have an ARM)
+- Property tax reassessments
+- Major repairs (roof, HVAC, foundation)
+- Income disruptions
+
+**4. Stress test your budget.** Before buying, try "paying" your projected mortgage for 3-6 months. Set aside the difference between your current rent and future payment. Can you sustain it comfortably? Did you have to cut things that matter to you?
+
+## The Opportunity Cost Nobody Mentions
+
+Every dollar in your house is a dollar not invested elsewhere. This matters more than most people realize.
+
+Consider two scenarios for someone earning $100,000:
+
+**Scenario A: Max out at 28%**
+- Housing: $2,333/month
+- Remaining for savings/investing: Limited
+
+**Scenario B: Target 20%**
+- Housing: $1,667/month
+- Extra $666/month invested at 7% = $116,000 after 10 years
+
+That $666/month difference buys either a slightly bigger house—or potentially $116,000 in investment gains. Which matters more to you?
+
+## Your Actual Affordability Calculation
+
+Here's a step-by-step process to find YOUR number:
+
+**Step 1: Calculate your gross monthly income**
+- Salary ÷ 12 = gross monthly
+- Include reliable income only (base salary, consistent bonuses)
+
+**Step 2: Apply the 28% rule**
+- Gross monthly × 0.28 = max housing payment
+
+**Step 3: Subtract estimated costs**
+- Max housing - property taxes - insurance - HOA - PMI = amount available for mortgage P&I
+
+**Step 4: Work backward to home price**
+- Use our [rent vs. buy calculator](/) to see exactly what you can afford based on your inputs
+
+**Step 5: Reality check with the 36% rule**
+- Add all monthly debts (car, student loans, credit cards)
+- If total exceeds 36% of gross income, reduce your target home price
+
+## What If You Can't Afford the Market?
+
+In many cities, following the 28/36 rule means you can't buy at all. If that's your situation, you have options:
+
+**Keep renting and investing.** Renting isn't "throwing money away." If buying requires stretching beyond reasonable limits, renting while investing the difference often builds more wealth. Our [calculator](/) can show you exactly when each option wins.
+
+**Expand your search area.** A 20-30 minute longer commute might mean a $100,000 difference in home prices.
+
+**Consider a starter home.** Your first home doesn't have to be your forever home. Buy what you can comfortably afford now, build equity, and upgrade later.
+
+**Wait and save more.** A larger down payment means a smaller loan, lower monthly payments, and no PMI. Sometimes patience pays.
+
+## The Bottom Line
+
+How much house can you afford? Here's the framework:
+
+1. **Start with the 28/36 rule** — Housing ≤ 28% of gross income, total debt ≤ 36%
+2. **Use 2.5-3x income** as a quick home price estimate (lean toward 2.5x at current rates)
+3. **Don't trust the bank's approval** — They'll approve more than you should spend
+4. **Include ALL costs** — Taxes, insurance, maintenance, HOA, PMI
+5. **Stress test your budget** — Live on the projected payment before committing
+6. **Consider opportunity cost** — Every housing dollar is a dollar not invested
+
+The right home price is one that lets you build wealth, save for retirement, handle emergencies, and still enjoy your life. That's different for everyone—and it might be lower than you expected.
+
+---
+
+**Ready to run the numbers?** Our [rent vs. buy calculator](/) factors in your income, down payment, local taxes, and investment alternatives. See exactly how much house makes sense for your situation—not what a lender says you can borrow.
+    `.trim(),
+  },
+  {
     slug: 'buy-now-or-wait-for-rates-to-drop',
     title: 'Should You Buy a House Now or Wait for Rates to Drop?',
     description: 'Mortgage rates are at 6% in 2026. Should you buy now or wait? Here\'s the math on timing the market vs. buying when you\'re ready.',
