@@ -25,6 +25,29 @@ interface TocItem {
   text: string;
 }
 
+// FAQ item for schema.org FAQPage
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+function extractFAQs(content: string): FaqItem[] {
+  // Match ## headings that end with ?
+  const faqRegex = /^##\s+(.+\?)\s*\n([\s\S]*?)(?=\n##|\n---|\n$)/gm;
+  const faqs: FaqItem[] = [];
+  let match;
+
+  while ((match = faqRegex.exec(content)) !== null) {
+    const question = match[1].trim();
+    const answer = match[2].trim().replace(/\n+/g, ' ').substring(0, 500);
+    if (answer.length > 50) {
+      faqs.push({ question, answer });
+    }
+  }
+
+  return faqs.slice(0, 5); // Max 5 FAQs
+}
+
 function extractHeadings(content: string): TocItem[] {
   const headingRegex = /^##\s+(.+)$/gm;
   const headings: TocItem[] = [];
@@ -186,6 +209,12 @@ export function BlogPostPage() {
     return extractHeadings(post.content);
   }, [post]);
 
+  // Extract FAQs for schema (questions are H2 headings ending with ?)
+  const faqs = useMemo(() => {
+    if (!post) return [];
+    return extractFAQs(post.content);
+  }, [post]);
+
   // Memoize markdown components
   const markdownComponents = useMemo(() => createMarkdownComponents(), []);
 
@@ -331,6 +360,20 @@ export function BlogPostPage() {
     ]
   };
 
+  // FAQ schema for rich snippets (questions are H2 headings ending with ?)
+  const faqSchema = faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  } : null;
+
   return (
     <>
       <script
@@ -341,6 +384,12 @@ export function BlogPostPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
