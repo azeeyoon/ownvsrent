@@ -7,6 +7,7 @@ export interface BlogPost {
   category: 'buying' | 'renting' | 'investing' | 'tips';
   content: string;
   featuredImage?: string; // Path like '/blog/slug/featured.jpg'
+  relatedSlugs?: string[]; // Manually curated related posts for internal linking
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -18,6 +19,7 @@ export const BLOG_POSTS: BlogPost[] = [
     readTime: '8 min',
     category: 'buying',
     featuredImage: '/blog/where-cheaper-buy-vs-rent-2026-by-region/featured.jpg',
+    relatedSlugs: ['how-much-house-can-i-afford', 'buy-now-or-wait-for-rates-to-drop', 'rent-vs-buy-5-percent-rule'],
     content: `
 The rent vs. buy decision isn't just about your finances—it's also about where you live. In 2026, the geographic divide is stark: buying is significantly cheaper in middle America, while renting dominates on the coasts.
 
@@ -195,6 +197,7 @@ If you're in a rent-favorable market, don't force homeownership. If you're in a 
     readTime: '9 min',
     category: 'investing',
     featuredImage: '/blog/house-hacking-duplex-live-rent-free/featured.jpg',
+    relatedSlugs: ['hidden-costs-of-homeownership', 'when-does-buying-make-sense', 'how-much-house-can-i-afford'],
     content: `
 What if your tenants paid your mortgage? That's the premise behind house hacking—a real estate strategy where you live in a property while renting out part of it. In 2026, with median home prices at $416,900 and mortgage payments averaging over $2,000/month, this approach has never been more relevant.
 
@@ -455,6 +458,7 @@ Not sure if buying makes sense at all? Start with our [rent vs. buy calculator](
     readTime: '8 min',
     category: 'buying',
     featuredImage: '/blog/how-much-house-can-i-afford/featured.jpg',
+    relatedSlugs: ['how-to-budget-for-home-purchase', 'first-time-homebuyer-mistakes', 'hidden-costs-of-homeownership'],
     content: `
 "How much house can I afford?" It's the first question every homebuyer asks—and the one most people get wrong. The bank will tell you one number. Financial reality often tells you another.
 
@@ -619,6 +623,7 @@ The right home price is one that lets you build wealth, save for retirement, han
     readTime: '7 min',
     category: 'buying',
     featuredImage: '/blog/buy-now-or-wait-for-rates-to-drop/featured.jpg',
+    relatedSlugs: ['where-cheaper-buy-vs-rent-2026-by-region', 'how-much-house-can-i-afford', 'when-does-buying-make-sense'],
     content: `
 "Should I wait for mortgage rates to drop?" It's the question on every prospective homebuyer's mind in 2026. With rates hovering around 6%, it's tempting to hold off for a better deal.
 
@@ -794,6 +799,7 @@ If you're ready to buy, buy. If rates drop later, refinance. If prices rise whil
     readTime: '8 min',
     category: 'renting',
     featuredImage: '/blog/is-renting-throwing-money-away/featured.jpg',
+    relatedSlugs: ['how-to-negotiate-rent', 'rent-vs-buy-5-percent-rule', 'when-does-buying-make-sense'],
     content: `
 "You're just throwing money away on rent." If you've ever mentioned renting to family, coworkers, or that one friend who just bought a house, you've probably heard this line. It's one of the most persistent myths in personal finance—and in 2026, it's more misleading than ever.
 
@@ -921,6 +927,7 @@ Don't let a catchy phrase pressure you into a $400,000 decision. Run the actual 
     readTime: '8 min',
     category: 'buying',
     featuredImage: '/blog/how-to-budget-for-home-purchase/featured.jpg',
+    relatedSlugs: ['how-much-house-can-i-afford', 'first-time-homebuyer-mistakes', 'hidden-costs-of-homeownership'],
     content: `
 Buying a home is the biggest financial decision most people make, yet many jump in without a clear budget. If you're wondering how to budget for a home purchase, this guide breaks down exactly what you need to save, how long it takes, and the strategies that actually work.
 
@@ -1118,6 +1125,7 @@ The median homebuyer now saves for 7 years. With intentional budgeting, you can 
     readTime: '6 min',
     category: 'buying',
     featuredImage: '/blog/hidden-costs-of-homeownership/featured.jpg',
+    relatedSlugs: ['first-time-homebuyer-mistakes', 'how-to-budget-for-home-purchase', 'house-hacking-duplex-live-rent-free'],
     content: `
 When you're calculating whether to buy a home, it's tempting to compare your mortgage payment to your rent. But that comparison misses a lot. Here are the costs that surprise most first-time homeowners.
 
@@ -1198,6 +1206,7 @@ Then compare that to renting + investing the difference. Our calculator does thi
     readTime: '7 min',
     category: 'buying',
     featuredImage: '/blog/first-time-homebuyer-mistakes/featured.jpg',
+    relatedSlugs: ['how-to-budget-for-home-purchase', 'hidden-costs-of-homeownership', 'how-much-house-can-i-afford'],
     content: `
 Buying your first home is exciting, but it's also when you're most vulnerable to costly mistakes. Here are the ones I see most often.
 
@@ -1287,6 +1296,7 @@ Use our calculator to understand the true cost before you start shopping, and yo
     readTime: '5 min',
     category: 'renting',
     featuredImage: '/blog/how-to-negotiate-rent/featured.jpg',
+    relatedSlugs: ['is-renting-throwing-money-away', 'rent-vs-buy-5-percent-rule', 'when-does-buying-make-sense'],
     content: `
 Most renters never try to negotiate. That's a mistake — landlords expect it, especially for lease renewals. Here's how to do it effectively.
 
@@ -1362,6 +1372,7 @@ The worst they can say is no. And if you're a good tenant, they probably won't s
     readTime: '8 min',
     category: 'investing',
     featuredImage: '/blog/when-does-buying-make-sense/featured.jpg',
+    relatedSlugs: ['house-hacking-duplex-live-rent-free', 'rent-vs-buy-5-percent-rule', 'is-renting-throwing-money-away'],
     content: `
 "Renting is throwing money away" is terrible advice. So is "buying is always better long-term." The truth is situational. Here's a framework to think through it clearly.
 
@@ -1467,6 +1478,7 @@ Run the numbers with our calculator, then let your lifestyle preferences break t
     readTime: '4 min',
     category: 'investing',
     featuredImage: '/blog/rent-vs-buy-5-percent-rule/featured.jpg',
+    relatedSlugs: ['when-does-buying-make-sense', 'is-renting-throwing-money-away', 'where-cheaper-buy-vs-rent-2026-by-region'],
     content: `
 The 5% Rule is a quick way to estimate whether renting or buying is cheaper, without running a full calculation. Here's how it works.
 

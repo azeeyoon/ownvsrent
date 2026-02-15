@@ -3,7 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { BLOG_POSTS, BLOG_CATEGORIES } from '../data/blogPosts';
+import { BLOG_POSTS, BLOG_CATEGORIES, type BlogPost } from '../data/blogPosts';
 import { AdUnit } from '../components/AdUnit';
 import { AuthorBio } from '../components/AuthorBio';
 
@@ -246,14 +246,24 @@ export function BlogPostPage() {
     }
   }, [post]);
 
+  // Find related posts - prefer manually curated, fall back to same category
+  const relatedPosts = useMemo(() => {
+    if (!post) return [];
+    if (post.relatedSlugs && post.relatedSlugs.length > 0) {
+      return post.relatedSlugs
+        .map(slug => BLOG_POSTS.find(p => p.slug === slug))
+        .filter((p): p is BlogPost => p !== undefined)
+        .slice(0, 3);
+    }
+    // Fallback: same category
+    return BLOG_POSTS
+      .filter(p => p.category === post.category && p.slug !== post.slug)
+      .slice(0, 3);
+  }, [post]);
+
   if (!post) {
     return <Navigate to="/blog" replace />;
   }
-
-  // Find related posts (same category, excluding current)
-  const relatedPosts = BLOG_POSTS
-    .filter(p => p.category === post.category && p.slug !== post.slug)
-    .slice(0, 2);
 
   // Word count for schema
   const wordCount = post.content.split(/\s+/).length;
