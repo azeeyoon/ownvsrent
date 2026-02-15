@@ -281,7 +281,7 @@ export function BlogPostPage() {
     "description": post.description,
     "image": schemaImageUrl,
     "datePublished": post.date,
-    "dateModified": post.date,
+    "dateModified": post.updatedDate || post.date,
     "wordCount": wordCount,
     "mainEntityOfPage": {
       "@type": "WebPage",
@@ -371,6 +371,18 @@ export function BlogPostPage() {
                 year: 'numeric'
               })}
             </time>
+            {post.updatedDate && post.updatedDate !== post.date && (
+              <>
+                <span className="text-sm text-gray-400">•</span>
+                <span className="text-sm text-gray-500">
+                  Updated {new Date(post.updatedDate).toLocaleDateString('en-US', {
+                    month: 'long',
+                    day: 'numeric',
+                    year: 'numeric'
+                  })}
+                </span>
+              </>
+            )}
           </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight">
             {post.title}

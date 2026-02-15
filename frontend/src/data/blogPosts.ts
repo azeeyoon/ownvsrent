@@ -8,6 +8,7 @@ export interface BlogPost {
   content: string;
   featuredImage?: string; // Path like '/blog/slug/featured.jpg'
   relatedSlugs?: string[]; // Manually curated related posts for internal linking
+  updatedDate?: string; // For showing "Last updated" freshness signal
 }
 
 export const BLOG_POSTS: BlogPost[] = [
