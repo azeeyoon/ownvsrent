@@ -187,7 +187,7 @@ If you're in a rent-favorable market, don't force homeownership. If you're in a 
 
 ---
 
-**Ready to see the numbers for your market?** Our [rent vs. buy calculator](/) analyzes your specific location, timeline, and finances. Enter your local home prices and rent—the calculator shows exactly when buying wins vs. when renting makes more sense for your situation.
+**Ready to see the numbers for your market?** Our [rent vs. buy calculator](/) analyzes your specific location, timeline, and finances. Enter your local home prices and rent—the calculator shows exactly when buying wins vs. when renting makes more sense for your situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -448,7 +448,7 @@ Not sure if buying makes sense at all? Start with our [rent vs. buy calculator](
 
 ---
 
-**Ready to run the numbers?** Our [rent vs. buy calculator](/) helps you compare the true cost of renting versus buying—including opportunity cost, tax benefits, and long-term wealth building. See exactly when buying makes sense for your situation, then explore whether house hacking could accelerate your path to financial freedom.
+**Ready to run the numbers?** Our [rent vs. buy calculator](/) helps you compare the true cost of renting versus buying—including opportunity cost, tax benefits, and long-term wealth building. For a deeper dive, check out our [complete guide to rent vs buy](/guide). See exactly when buying makes sense for your situation, then explore whether house hacking could accelerate your path to financial freedom.
     `.trim(),
   },
   {
@@ -613,7 +613,7 @@ The right home price is one that lets you build wealth, save for retirement, han
 
 ---
 
-**Ready to run the numbers?** Our [rent vs. buy calculator](/) factors in your income, down payment, local taxes, and investment alternatives. See exactly how much house makes sense for your situation—not what a lender says you can borrow.
+**Ready to run the numbers?** Our [rent vs. buy calculator](/) factors in your income, down payment, local taxes, and investment alternatives. See exactly how much house makes sense for your situation—not what a lender says you can borrow. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -789,7 +789,7 @@ If you're ready to buy, buy. If rates drop later, refinance. If prices rise whil
 
 ---
 
-**Ready to see the real numbers?** Our [rent vs. buy calculator](/) runs a month-by-month simulation comparing buying now versus waiting. Enter your actual numbers—home price, current rent, down payment—and see exactly what makes sense for your situation.
+**Ready to see the real numbers?** Our [rent vs. buy calculator](/) runs a month-by-month simulation comparing buying now versus waiting. Enter your actual numbers—home price, current rent, down payment—and see exactly what makes sense for your situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -917,7 +917,7 @@ Don't let a catchy phrase pressure you into a $400,000 decision. Run the actual 
 
 ---
 
-**Ready to see the math for your situation?** Our [rent vs. buy calculator](/) runs a complete financial simulation comparing both paths. It's free, takes 2 minutes, and might save you from the most expensive mistake of your life—or confirm that now really is the time to buy.
+**Ready to see the math for your situation?** Our [rent vs. buy calculator](/) runs a complete financial simulation comparing both paths. It's free, takes 2 minutes, and might save you from the most expensive mistake of your life—or confirm that now really is the time to buy. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -1116,6 +1116,10 @@ Budgeting for a home purchase comes down to:
 5. **Run the numbers** — use a calculator to compare buying vs. renting for your situation
 
 The median homebuyer now saves for 7 years. With intentional budgeting, you can cut that timeline significantly — or decide that renting and investing makes more sense for you. Either way, knowing your numbers puts you in control.
+
+---
+
+**Ready to run your numbers?** Use our [rent vs. buy calculator](/) to see exactly when buying beats renting for your specific situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -1196,7 +1200,11 @@ Homeownership can still make sense, but only if you're honest about the full cos
 - Maintenance (1-2% annually)
 - Opportunity cost of down payment
 
-Then compare that to renting + investing the difference. Our calculator does this math for you automatically.
+Then compare that to renting + investing the difference.
+
+---
+
+**Ready to run your numbers?** Use our [rent vs. buy calculator](/) to see exactly when buying beats renting for your specific situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -1286,7 +1294,9 @@ All credit checks within 45 days count as one inquiry, so shop aggressively.
 
 Take your time. A home is the biggest purchase most people make. Rushing leads to regrets.
 
-Use our calculator to understand the true cost before you start shopping, and you'll negotiate from a position of knowledge, not emotion.
+---
+
+**Ready to run your numbers?** Use our [rent vs. buy calculator](/) to see exactly when buying beats renting for your specific situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -1363,6 +1373,10 @@ In my experience, about 70% of negotiation attempts result in either:
 - Some form of concession (free parking, waived fees)
 
 The worst they can say is no. And if you're a good tenant, they probably won't say no.
+
+---
+
+**Ready to run your numbers?** Use our [rent vs. buy calculator](/) to see exactly when buying beats renting for your specific situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -1468,7 +1482,9 @@ Given that, lifestyle factors often matter more:
 - Do you hate dealing with repairs?
 - Do you want the option to move easily?
 
-Run the numbers with our calculator, then let your lifestyle preferences break the tie.
+---
+
+**Ready to run your numbers?** Use our [rent vs. buy calculator](/) to see exactly when buying beats renting for your specific situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
   {
@@ -1548,6 +1564,10 @@ Can't remember 5%? Just take 0.5% of the home price — that's your monthly brea
 - $1,000,000 home → $5,000/month break-even
 
 If rent is significantly below these numbers, you're probably better off renting.
+
+---
+
+**Ready to run your numbers?** Use our [rent vs. buy calculator](/) to see exactly when buying beats renting for your specific situation. For a deeper dive, check out our [complete guide to rent vs buy](/guide).
     `.trim(),
   },
 ];
