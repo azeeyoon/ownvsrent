@@ -141,7 +141,7 @@ export function AboutPage() {
               We're a small team of software engineers and personal finance enthusiasts who got frustrated with the biased calculators available online. After seeing too many people make the "buy vs rent" decision based on bad math or emotional pressure, we decided to build something better.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              This project is open source and built with transparency in mind. We fund the site through non-intrusive advertising, which allows us to keep it free for everyone.
+              We built this project with transparency in mind. We fund the site through non-intrusive advertising, which allows us to keep it free for everyone.
             </p>
           </div>
         </div>
