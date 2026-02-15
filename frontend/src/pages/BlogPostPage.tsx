@@ -5,6 +5,7 @@ import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { BLOG_POSTS, BLOG_CATEGORIES } from '../data/blogPosts';
 import { AdUnit } from '../components/AdUnit';
+import { AuthorBio } from '../components/AuthorBio';
 
 function findPost(slug: string) {
   return BLOG_POSTS.find(post => post.slug === slug);
@@ -391,6 +392,9 @@ export function BlogPostPage() {
             {post.content}
           </ReactMarkdown>
         </div>
+
+        {/* Author Bio */}
+        <AuthorBio />
 
         {/* Ad */}
         <div className="my-14 flex justify-center">
