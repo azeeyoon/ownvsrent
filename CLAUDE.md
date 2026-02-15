@@ -16,6 +16,7 @@
 
 | Date | Change |
 |------|--------|
+| 2026-02-14 | Set up blog automation: launchd reminder (Wed/Sat 7am) + manual script trigger |
 | 2026-02-13 | Added Table of Contents to blog posts (H2 headings only), updated skill with blog format guidelines |
 | 2026-02-10 | Added blog image support: featured images, OG/Twitter meta tags, `/fetch-blog-image` skill |
 | 2026-02-09 | Updated CLAUDE.md to reflect actual Vite + React Router architecture |
@@ -29,8 +30,7 @@
 
 ### Pending Tasks
 - Reddit API approval (then upgrade monitoring to automated)
-- AdSense activation (currently "Getting ready")
-- Generate more blog posts using `/seo-blog-post` + `/publish-blog-post` workflow
+- AdSense activation (currently "Getting ready") — need 15-20 blog posts
 - Add frontend tests (Vitest configured but no test files yet)
 - Build UI for sensitivity analysis and Monte Carlo (backend endpoints ready)
 
@@ -79,6 +79,42 @@ Blog posts are rendered in `BlogPostPage.tsx` using ReactMarkdown with custom st
 5. Include **tables** for comparisons (rent vs buy, pros/cons)
 6. Add **horizontal rules** (`---`) to separate major topic shifts
 7. Always include a **CTA linking to calculator** (`/`)
+
+### Blog Automation Setup
+
+**Schedule:** Wednesday & Saturday at 7am
+
+**How it works:**
+1. launchd triggers reminder → macOS notification + Terminal opens
+2. User runs `~/scripts/ownvsrent-blog.sh` manually (needs Claude auth context)
+3. Script searches Reddit, picks topic, generates post, publishes, emails confirmation
+
+**Files:**
+| File | Purpose |
+|------|---------|
+| `~/scripts/ownvsrent-blog.sh` | Main generation script (run manually) |
+| `~/scripts/ownvsrent-blog-reminder.sh` | Notification + opens Terminal |
+| `~/Library/LaunchAgents/com.ownvsrent.blog.plist` | launchd schedule |
+| `~/.ownvsrent-blog-env` | SendGrid API key + email config |
+| `~/scripts/ownvsrent-blog.log` | Log file |
+
+**Commands:**
+```bash
+# Run blog generation
+~/scripts/ownvsrent-blog.sh
+
+# Test reminder
+~/scripts/ownvsrent-blog-reminder.sh
+
+# View logs
+tail -f ~/scripts/ownvsrent-blog.log
+
+# Enable/disable schedule
+launchctl load ~/Library/LaunchAgents/com.ownvsrent.blog.plist
+launchctl unload ~/Library/LaunchAgents/com.ownvsrent.blog.plist
+```
+
+**Note:** Claude CLI requires interactive terminal auth, so full automation isn't possible with free subscription. The reminder approach works around this.
 
 ---
 
