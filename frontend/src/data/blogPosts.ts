@@ -11,6 +11,266 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'house-hacking-duplex-live-rent-free',
+    title: 'House Hacking: How to Live Rent-Free in 2026',
+    description: 'Learn how house hacking a duplex or renting rooms can slash your housing costs by 50-100%. FHA loans, strategies, and real math inside.',
+    date: '2026-02-14',
+    readTime: '9 min',
+    category: 'investing',
+    featuredImage: '/blog/house-hacking-duplex-live-rent-free/featured.jpg',
+    content: `
+What if your tenants paid your mortgage? That's the premise behind house hacking—a real estate strategy where you live in a property while renting out part of it. In 2026, with median home prices at $416,900 and mortgage payments averaging over $2,000/month, this approach has never been more relevant.
+
+Here's the bottom line: **House hacking can reduce your housing costs by 50-100%, letting you live for free (or close to it) while building equity.** It's not a get-rich-quick scheme—it's a smart housing decision that straddles the line between renting and traditional buying.
+
+## What Is House Hacking?
+
+House hacking means purchasing a property, living in part of it, and renting out the rest to offset your housing costs. The rental income covers some or all of your mortgage payment, property taxes, and insurance.
+
+The most common approaches:
+
+- **Buy a duplex, triplex, or fourplex** — Live in one unit, rent the others
+- **Rent out rooms** — Buy a single-family home and rent spare bedrooms
+- **Add an ADU** — Build or convert a basement/garage into a rentable unit
+- **Short-term rentals** — Airbnb a portion of your home
+
+The key requirement: you must live in the property as your primary residence. This unlocks favorable financing options that pure investors don't get.
+
+## Why House Hacking Works in 2026
+
+The math is compelling. Let's compare traditional homeownership to house hacking:
+
+| Scenario | Monthly Cost | Annual Housing Cost |
+|----------|-------------|---------------------|
+| Renting apartment | $1,900 | $22,800 |
+| Buying single-family home | $2,675 | $32,100 |
+| House hacking duplex | $400-$800 | $4,800-$9,600 |
+
+That's potential savings of $15,000-$25,000 per year—money you can invest, use to pay down the mortgage faster, or save for your next property.
+
+> **Real example:** A buyer purchases a duplex for $425,000 with 3.5% down (FHA loan). Her unit would rent for $1,400/month. The other unit rents for $1,500/month. Her total PITI payment is $2,800. After collecting rent, her out-of-pocket cost is $1,300/month—52% less than owning a comparable single-family home.
+
+## The FHA Loan Advantage
+
+Here's what makes house hacking accessible: FHA loans allow you to buy 1-4 unit properties with just 3.5% down, as long as you live in one unit.
+
+### 2026 FHA Multifamily Loan Limits
+
+| Property Type | Standard Areas | High-Cost Areas |
+|---------------|----------------|-----------------|
+| Duplex | $604,400 | $1,066,300 |
+| Triplex | $730,525 | $1,289,050 |
+| Fourplex | $907,900 | $1,602,250 |
+
+Compare this to investment property loans that require 20-25% down. On a $400,000 duplex:
+
+- **FHA (3.5% down):** $14,000
+- **Conventional investment (25% down):** $100,000
+
+That's $86,000 less cash needed upfront. The tradeoff? You must live there for at least one year.
+
+### Counting Rental Income to Qualify
+
+Another FHA perk: lenders can count 75% of projected rental income from the other units toward your qualifying income. If the second unit would rent for $1,500/month, the lender adds $1,125 to your monthly income when calculating your debt-to-income ratio.
+
+This makes it easier to qualify for larger loans than you could on your income alone.
+
+## House Hacking Strategies Ranked
+
+Not all house hacks are equal. Here's how the main strategies compare:
+
+### 1. Duplex/Triplex/Fourplex (Best ROI)
+
+**Pros:**
+- Separate units = privacy for you and tenants
+- Higher rental income potential
+- Best financing options (FHA, VA, conventional)
+- Clear landlord-tenant boundaries
+
+**Cons:**
+- Higher purchase price
+- More competition for multi-family properties
+- Landlord responsibilities from day one
+
+**Best for:** First-time buyers serious about real estate investing
+
+### 2. Renting Rooms (Lowest Barrier)
+
+**Pros:**
+- Works with any single-family home
+- No need to find multi-family inventory
+- Flexible—stop when you want
+
+**Cons:**
+- Shared living space
+- Finding compatible roommates
+- Less privacy
+
+**Best for:** Single buyers or couples comfortable with roommates
+
+### 3. ADU or Basement Conversion
+
+**Pros:**
+- Creates a separate living space
+- Adds permanent property value
+- Can convert back to personal use later
+
+**Cons:**
+- Upfront construction costs ($50,000-150,000)
+- Permitting and zoning hurdles
+- Takes time to complete
+
+**Best for:** Buyers with cash reserves who want to add value
+
+### 4. Short-Term Rentals (Highest Income, Highest Effort)
+
+**Pros:**
+- Higher nightly rates than long-term rentals
+- Flexibility to use the space yourself
+- Can test demand before committing
+
+**Cons:**
+- Constant turnover and management
+- Local regulations may restrict or ban
+- Inconsistent income
+
+**Best for:** Buyers in tourist areas willing to put in management time
+
+## Running the Numbers: Is House Hacking Worth It?
+
+Let's walk through a realistic 2026 example:
+
+### The Property
+- **Purchase price:** $450,000 (duplex)
+- **Down payment:** 3.5% ($15,750)
+- **Loan amount:** $434,250
+- **Interest rate:** 6.5%
+- **Loan term:** 30 years
+
+### Monthly Costs
+- **Principal & Interest:** $2,745
+- **Property taxes:** $375 (1%)
+- **Insurance:** $200
+- **PMI:** $180
+- **Maintenance reserve:** $375 (1% annually)
+- **Total PITI + reserves:** $3,875
+
+### Rental Income
+- **Unit B rent:** $1,800/month
+- **Vacancy allowance (5%):** -$90
+- **Net rental income:** $1,710
+
+### Your Out-of-Pocket Cost
+- **Total costs:** $3,875
+- **Minus rental income:** -$1,710
+- **Your monthly cost:** $2,165
+
+That's $710/month less than the median mortgage payment ($2,875) for a single-family home—**$8,520 saved per year**. And you're building equity in a property worth $450,000.
+
+If Unit B rented for $2,100/month instead, your cost drops to $1,885. Find a triplex? You could approach zero out-of-pocket.
+
+## The Downsides Nobody Mentions
+
+House hacking isn't all upside. Here's what to consider:
+
+### You're a Landlord Now
+
+Tenants call when the toilet breaks at 11 PM. You'll handle lease agreements, security deposits, and potentially evictions. This is real work—budget 5-10 hours/month for management.
+
+### Privacy Trade-offs
+
+Even with separate units, your tenant lives next door. You'll hear them. They'll see you come and go. Not everyone wants that proximity.
+
+### The FHA Residency Requirement
+
+You must live in the property as your primary residence for at least 12 months. Moving out early can trigger loan fraud issues. Plan to stay put.
+
+### Cash Flow Isn't Guaranteed
+
+Vacancies, repairs, and problem tenants happen. Build a 3-6 month cash reserve before buying. The rental income looks great on paper until your tenant stops paying.
+
+### Appreciation Isn't Always Better
+
+Multi-family properties don't always appreciate as fast as single-family homes in the same area. You're trading potential appreciation for cash flow. Depending on your market, that trade-off may or may not favor you.
+
+## House Hacking vs. Traditional Rent vs. Buy
+
+How does house hacking compare to the classic decision? Here's a framework:
+
+| Factor | Renting | Buying (Traditional) | House Hacking |
+|--------|---------|----------------------|---------------|
+| Monthly cost | $1,900 | $2,675 | $1,000-2,000 |
+| Builds equity | No | Yes | Yes |
+| Flexibility | High | Low | Low |
+| Maintenance | None | All yours | All yours |
+| Privacy | Medium | High | Medium-Low |
+| Landlord duties | None | None | Yes |
+| Wealth building | Investment returns | Home equity | Both |
+
+House hacking sits between renting and buying—you get equity-building benefits at renter-level costs, but you take on landlord responsibilities.
+
+Use our [rent vs. buy calculator](/) to compare traditional buying versus renting in your market first. If buying makes sense, house hacking often makes even more sense.
+
+## How to Find a House Hack Property
+
+Multi-family properties are competitive. Here's how to find deals:
+
+### 1. Search Specifically for 2-4 Units
+
+On Zillow, Redfin, or Realtor.com, filter for "Multi-family" or "Duplex/Triplex/Fourplex." These listings are often buried.
+
+### 2. Look for "Conversion Potential"
+
+Single-family homes with finished basements, detached garages, or large lots may have ADU potential. Check local zoning for ADU rules.
+
+### 3. Work with an Investor-Friendly Agent
+
+Most agents focus on single-family buyers. Find one who understands rental income analysis and has multi-family experience.
+
+### 4. Consider Off-Market Deals
+
+Drive neighborhoods you like and look for duplexes. Contact owners directly. Many small landlords would sell to the right buyer without listing.
+
+### 5. Be Ready to Move Fast
+
+Good multi-family properties sell quickly. Get pre-approved before you start searching.
+
+## Is House Hacking Right for You?
+
+House hacking works best if:
+
+- You're comfortable being a landlord (or willing to learn)
+- You plan to stay in one place for 3+ years
+- You want to reduce housing costs significantly
+- You're interested in real estate investing
+- You don't mind reduced privacy
+
+House hacking may NOT be right if:
+
+- You value maximum privacy and personal space
+- You're not handy or don't want management responsibilities
+- You need flexibility to move within 1-2 years
+- You're in a market where multi-family prices don't pencil out
+
+## The Bottom Line
+
+House hacking is one of the best financial moves a first-time buyer can make in 2026. By purchasing a duplex or multi-family property with an FHA loan (3.5% down), you can:
+
+- **Reduce housing costs by 50-100%**
+- **Build equity while "renting" below market rate**
+- **Start your real estate investing journey with training wheels**
+- **Use rental income to qualify for a larger loan**
+
+The trade-off is landlord responsibility and reduced privacy. For many buyers—especially those in their 20s and 30s—that's a worthwhile exchange for thousands in annual savings.
+
+Not sure if buying makes sense at all? Start with our [rent vs. buy calculator](/) to see if homeownership pencils out in your market. If buying wins, house hacking often wins bigger.
+
+---
+
+**Ready to run the numbers?** Our [rent vs. buy calculator](/) helps you compare the true cost of renting versus buying—including opportunity cost, tax benefits, and long-term wealth building. See exactly when buying makes sense for your situation, then explore whether house hacking could accelerate your path to financial freedom.
+    `.trim(),
+  },
+  {
     slug: 'how-much-house-can-i-afford',
     title: 'How Much House Can I Afford? 2026 Affordability Guide',
     description: 'Use the 28/36 rule and real 2026 data to calculate how much house you can actually afford. Avoid becoming house poor with this guide.',
