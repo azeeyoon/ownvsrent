@@ -1,5 +1,8 @@
 import { useEffect, useRef } from 'react';
 
+// Set to true when AdSense is activated and serving ads
+const ADS_ENABLED = false;
+
 interface AdUnitProps {
   slot: string;
   format: 'leaderboard' | 'rectangle' | 'in-article';
@@ -11,6 +14,7 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
   const isLoaded = useRef(false);
 
   useEffect(() => {
+    if (!ADS_ENABLED) return;
     if (isLoaded.current) return;
     if (!import.meta.env.PROD) return;
 
@@ -25,6 +29,11 @@ export function AdUnit({ slot, format, className = '' }: AdUnitProps) {
       // AdSense not loaded or blocked
     }
   }, []);
+
+  // Ads disabled - render nothing
+  if (!ADS_ENABLED) {
+    return null;
+  }
 
   // In development, show placeholder
   if (!import.meta.env.PROD) {
