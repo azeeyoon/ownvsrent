@@ -1,0 +1,46 @@
+name: Deploy Backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-backend.yml'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to EC2
+        run: |
+          # Copy backend code
+          rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            backend/ ec2-user@${{ secrets.EC2_HOST }}:/opt/ownvsrent/backend/
+
+          # Install dependencies and restart service
+          ssh ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+            cd /opt/ownvsrent/backend
+            export PATH="$HOME/.local/bin:$PATH"
+            uv sync --all-extras
+            sudo systemctl restart ownvsrent
+            sudo systemctl status ownvsrent --no-pager
+          EOF
+
+      - name: Verify deployment
+        run: |
+          sleep 5
+          curl -sf https://api.ownvsrent.io/docs || echo "API health check - may need SSL setup first"
