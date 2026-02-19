@@ -32,12 +32,12 @@ jobs:
         working-directory: frontend
         run: npm ci
 
-      - name: Build
+      - name: Build with SSG prerendering
         working-directory: frontend
         env:
           VITE_ADSENSE_ID: ${{ secrets.VITE_ADSENSE_ID }}
           VITE_GA_ID: ${{ secrets.VITE_GA_ID }}
-        run: npm run build
+        run: npm run build:ssg
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -49,16 +49,24 @@ jobs:
       - name: Deploy to S3
         working-directory: frontend
         run: |
+          # Sync all assets (JS, CSS, images) with long cache
           aws s3 sync dist/ s3://${{ env.S3_BUCKET }} \
             --delete \
             --cache-control "public, max-age=31536000, immutable" \
-            --exclude "index.html" \
+            --exclude "*.html" \
             --exclude "sitemap.xml" \
             --exclude "robots.txt"
 
-          # Upload HTML and XML files with shorter cache
+          # Upload root HTML with short cache
           aws s3 cp dist/index.html s3://${{ env.S3_BUCKET }}/index.html \
             --cache-control "public, max-age=0, must-revalidate"
+
+          # Upload prerendered blog HTML files with short cache
+          aws s3 sync dist/blog/ s3://${{ env.S3_BUCKET }}/blog/ \
+            --cache-control "public, max-age=3600" \
+            --include "*.html"
+
+          # Upload sitemap and robots with medium cache
           aws s3 cp dist/sitemap.xml s3://${{ env.S3_BUCKET }}/sitemap.xml \
             --cache-control "public, max-age=86400"
           aws s3 cp dist/robots.txt s3://${{ env.S3_BUCKET }}/robots.txt \
