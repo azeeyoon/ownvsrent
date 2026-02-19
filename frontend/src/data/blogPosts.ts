@@ -13,6 +13,203 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'assumable-mortgage-guide-2026',
+    title: 'Assumable Mortgages in 2026: How to Get a Sub-3% Rate',
+    description: 'Learn how to assume an FHA or VA loan and lock in rates under 3% in 2026. Save $750+/month by taking over someone else\'s low-rate mortgage.',
+    date: '2026-02-19',
+    readTime: '10 min',
+    category: 'buying',
+    featuredImage: '/blog/assumable-mortgage-guide-2026/featured.jpg',
+    relatedSlugs: ['buy-now-or-wait-for-rates-to-drop', 'how-much-house-can-i-afford', 'first-time-homebuyer-mistakes'],
+    content: `
+With mortgage rates hovering around 6-7% in 2026, homebuyers are desperate for alternatives. There's one strategy that could slash your rate to under 3%: assuming someone else's mortgage.
+
+**The bottom line:** About 12 million homes in the U.S. have assumable government-backed loans (FHA, VA, USDA) with rates locked in during the 2020-2021 era. If you can assume one of these loans, you could save $750+ per month compared to today's rates. Here's exactly how it works.
+
+## What Is an Assumable Mortgage?
+
+An assumable mortgage lets a buyer take over the seller's existing loan—including the original interest rate, remaining balance, and loan terms. Instead of getting a new mortgage at today's 6%+ rates, you step into the seller's shoes and keep their 2.5-3.5% rate.
+
+Not all mortgages are assumable. Here's what qualifies:
+
+| Loan Type | Assumable? | Notes |
+|-----------|------------|-------|
+| VA Loans | Yes | Anyone can assume, not just veterans |
+| FHA Loans | Yes | Must meet FHA credit requirements |
+| USDA Loans | Yes | Must meet income/location requirements |
+| Conventional | No | Due-on-sale clause prevents assumption |
+
+> **Key insight:** About 25% of all mortgages are government-backed and therefore assumable. That's roughly 12 million homes with potentially assumable loans—many locked in at historically low rates.
+
+## The Numbers: How Much Can You Save?
+
+The savings from assuming a low-rate mortgage are staggering. Let's compare:
+
+| Scenario | Assume 3% Rate | New Loan at 6.5% |
+|----------|----------------|------------------|
+| Loan Amount | $350,000 | $350,000 |
+| Monthly P&I | $1,476 | $2,212 |
+| Monthly Savings | — | $736 |
+| Annual Savings | — | $8,832 |
+| 30-Year Savings | — | $228,100 |
+
+According to analysis of over 312,000 assumable listings, buyers who successfully assume mortgages save an average of **$1,187 per month**—that's over $14,000 annually.
+
+Use our [rent vs. buy calculator](/) to see how assuming a low-rate mortgage changes your buying math compared to renting.
+
+## Why Assumable Mortgages Are Exploding in 2026
+
+VA loan assumptions surged from just 308 in 2022 to over 2,244 in 2023—a 628% increase. That trend has only accelerated as buyers seek creative solutions to affordability challenges.
+
+Here's why this matters now:
+
+- Millions of homeowners locked in rates between 2.5-4% during 2020-2022
+- Current rates are nearly double those levels
+- Sellers with low-rate mortgages can use assumability as a selling point
+- Platforms like Assumable.io now make these listings searchable
+
+> **Reality check:** The average assumed VA loan rate is 3.2%, compared to today's market rate of 7.1%. That's a nearly 4-percentage-point difference on every dollar borrowed.
+
+---
+
+## The Catch: Covering the Equity Gap
+
+Here's the challenge most buyers don't anticipate: you're assuming the loan balance, not the home's current value.
+
+Home prices have risen 54% since January 2020. If a seller bought for $300,000 with a $270,000 loan in 2020, and the home is now worth $450,000, here's your math:
+
+| Component | Amount |
+|-----------|--------|
+| Home Price (2026) | $450,000 |
+| Remaining Loan Balance | $250,000 |
+| **Equity Gap You Must Cover** | **$200,000** |
+
+That $200,000 gap is your responsibility. You need cash or financing to cover it.
+
+### How to Bridge the Gap
+
+**Option 1: Large Down Payment**
+If you have substantial savings, you can pay the gap in cash. This is the simplest approach but requires significant capital.
+
+**Option 2: Second Mortgage or HELOC**
+Some lenders offer "gap financing"—a second mortgage that covers the difference between the assumable loan and purchase price. You'll pay market rates on this portion, but it's still better than financing the whole amount at 6%+.
+
+**Option 3: Seller Financing**
+The seller carries a note for the equity gap. This requires a motivated seller but can offer favorable terms.
+
+**Option 4: Find Newer Purchases**
+Homes bought in 2021-2022 have less built-up equity, making the gap smaller. A home purchased for $400,000 in 2022 might only be worth $440,000 now—a much more manageable $40,000-60,000 gap.
+
+## Step-by-Step: How to Assume a Mortgage
+
+The assumption process takes longer than a traditional purchase—typically 45-90 days. Here's what to expect:
+
+### Step 1: Find an Assumable Listing
+
+Start by identifying homes with assumable loans:
+
+- Use platforms like Assumable.io that specialize in these listings
+- Ask your real estate agent to filter for VA, FHA, and USDA loans
+- Look for listings that mention "assumable mortgage" as a feature
+
+### Step 2: Verify the Loan Details
+
+Before making an offer, confirm:
+
+- Current interest rate and remaining balance
+- Monthly payment amount (principal, interest, taxes, insurance)
+- Remaining loan term
+- Any prepayment penalties or restrictions
+
+### Step 3: Calculate the Equity Gap
+
+Work with your agent to determine:
+
+- The home's current market value
+- The remaining loan balance
+- Your required cash or financing for the gap
+
+### Step 4: Make an Offer
+
+Structure your offer to account for the assumption. You may need to negotiate who pays assumption fees and how the gap will be financed.
+
+### Step 5: Apply for Assumption Approval
+
+The seller's lender will evaluate you just like a new borrower:
+
+- **Credit score:** 620+ for most VA assumptions (580 with compensating factors)
+- **Debt-to-income ratio:** 41% maximum for VA loans
+- **Employment and income verification**
+- **Documentation similar to a traditional mortgage application**
+
+> **Timeline note:** By law, servicers have 45 days to evaluate your application. In practice, it often takes 60-90 days total.
+
+### Step 6: Close and Transfer
+
+Once approved, you'll close on the assumption. The loan transfers to your name with all original terms intact.
+
+---
+
+## Who Can Assume a VA Loan?
+
+Here's a common misconception: you do NOT need to be a veteran to assume a VA loan. Anyone who meets the lender's credit and income requirements can assume.
+
+However, there's an important consideration for veteran sellers:
+
+| Buyer Type | Effect on Seller's VA Entitlement |
+|------------|-----------------------------------|
+| Veteran assumes loan | Seller's entitlement restored |
+| Non-veteran assumes loan | Seller's entitlement remains tied up |
+
+This can make some veteran sellers hesitant to let non-veterans assume their loans. Be prepared to address this in negotiations—sometimes offering a slightly higher price or faster closing can overcome this objection.
+
+## FHA Assumption Requirements
+
+FHA loans are also assumable, with some specific requirements:
+
+- **Credit score:** 580 minimum (some lenders require 620+)
+- **Debt-to-income:** Generally 43% maximum
+- **Primary residence:** You must live in the home
+- **Seasoning:** Loans originated before December 15, 1989 can be assumed without qualification; newer loans require full qualification
+
+The process mirrors VA assumptions but goes through FHA-approved lenders.
+
+## Is Assuming a Mortgage Right for You?
+
+Assumable mortgages aren't for everyone. Here's when they make the most sense:
+
+**Ideal Candidates:**
+- You have significant cash for a down payment (to cover equity gap)
+- You're patient with a longer closing process (45-90 days)
+- You're buying in an area with many VA/FHA homes
+- You plan to stay long-term (maximize rate savings)
+
+**May Not Be Right If:**
+- You need a quick close
+- You can only afford a small down payment
+- The equity gap is too large to finance reasonably
+- You're uncomfortable with a more complex transaction
+
+Use our [rent vs. buy calculator](/) to compare scenarios: assuming a 3% mortgage vs. getting a new loan at current rates vs. continuing to rent.
+
+## The Bottom Line
+
+Assumable mortgages are one of the most powerful tools available to buyers in 2026. With average savings of $1,187/month and potential total savings exceeding $200,000 over the life of a loan, they deserve serious consideration.
+
+Here's what to remember:
+
+- **VA, FHA, and USDA loans are assumable**—that's roughly 12 million homes
+- **Average savings:** $750-1,200/month compared to current rates
+- **The catch:** You must cover the equity gap between loan balance and purchase price
+- **Timeline:** 45-90 days, longer than traditional purchases
+- **Anyone can assume** a VA loan—you don't need to be a veteran
+
+Start by searching for assumable listings in your target area. Even if you don't end up assuming, understanding this option gives you leverage in negotiations.
+
+**Ready to crunch the numbers?** Use our [rent vs. buy calculator](/) to see exactly how much a low-rate assumed mortgage changes your financial picture compared to renting or buying at current rates. Don't forget to check our [guide on when buying makes sense](/blog/when-does-buying-make-sense) for more decision-making frameworks.
+    `.trim(),
+  },
+  {
     slug: 'how-to-negotiate-home-price-2026',
     title: "How to Negotiate Home Price in 2026: A Buyer's Guide",
     description: "2026's balanced market gives buyers real leverage. Learn negotiation strategies for price, concessions, and closing costs that actually work.",
