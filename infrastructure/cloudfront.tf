@@ -6,6 +6,32 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
   signing_protocol                  = "sigv4"
 }
 
+# CloudFront Function to rewrite /blog/slug to /blog/slug/index.html
+resource "aws_cloudfront_function" "url_rewrite" {
+  name    = "ownvsrent-url-rewrite"
+  runtime = "cloudfront-js-2.0"
+  comment = "Rewrite blog URLs to serve prerendered HTML"
+  publish = true
+  code    = <<-EOF
+    function handler(event) {
+      var request = event.request;
+      var uri = request.uri;
+
+      // If URI is /blog/something (not /blog/ or /blog/something/)
+      // and doesn't have a file extension, append /index.html
+      if (uri.startsWith('/blog/') && !uri.endsWith('/') && !uri.includes('.')) {
+        request.uri = uri + '/index.html';
+      }
+      // If URI is /blog (no trailing slash), redirect to /blog/
+      else if (uri === '/blog') {
+        request.uri = '/blog/index.html';
+      }
+
+      return request;
+    }
+  EOF
+}
+
 resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
   is_ipv6_enabled     = true
@@ -36,6 +62,12 @@ resource "aws_cloudfront_distribution" "frontend" {
     default_ttl            = 3600
     max_ttl                = 86400
     compress               = true
+
+    # URL rewrite function for prerendered blog pages
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.url_rewrite.arn
+    }
   }
 
   custom_error_response {
