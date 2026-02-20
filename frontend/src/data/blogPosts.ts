@@ -13,6 +13,264 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'co-buying-home-with-friends-family-2026',
+    title: 'Co-Buying a Home in 2026: Guide to Buying with Friends or Family',
+    description: 'Learn how to co-buy a home with friends or family in 2026. Covers legal structures, financing, exit strategies, and co-ownership agreements.',
+    date: '2026-02-19',
+    readTime: '9 min',
+    category: 'buying',
+    featuredImage: '/blog/co-buying-home-with-friends-family-2026/featured.jpg',
+    relatedSlugs: ['hidden-costs-of-homeownership', 'first-time-homebuyer-mistakes', 'how-much-house-can-i-afford'],
+    content: `
+Can't afford a home on your own? You're not alone. In 2026, over 61 million Americans co-own a home with someone other than their spouse. Co-buying with friends or family has become a legitimate path to homeownership, especially as home prices remain elevated and mortgage rates hover near 6.5%.
+
+But co-buying isn't just pooling money for a down payment. It's a legal and financial partnership that requires careful planning. This guide covers everything you need to know before buying a home with friends or family members.
+
+## Why Co-Buying Is on the Rise
+
+The numbers tell the story. According to CoBuy's 2025 report, 30% of all U.S. home sales now involve co-buyers. While most co-buyers are married couples, a growing share are friends (58% of co-owner groups), relatives (30%), and unmarried partners (23%).
+
+Gen Z is leading this shift. A recent survey found that 32% of Gen Z respondents are considering co-buying—78% more likely than millennials to explore this option.
+
+The math is simple. In a market where the median home price exceeds $400,000 and the typical down payment requires $80,000 or more, splitting costs makes ownership possible for people who couldn't buy alone.
+
+## How Co-Buying Works: The Basics
+
+Co-buying means two or more people purchase a property together. You'll share:
+
+- The down payment and closing costs
+- Monthly mortgage payments
+- Property taxes and insurance
+- Maintenance and repair costs
+- Equity gains (or losses) when you sell
+
+You can co-buy with friends, siblings, parents, cousins, or any combination. The key is having a clear legal structure and written agreement before you sign anything.
+
+---
+
+## Choosing Your Ownership Structure
+
+Before you start house hunting, you need to decide how you'll legally own the property. The two main options are joint tenancy and tenancy in common.
+
+### Joint Tenancy
+
+In joint tenancy, all owners have equal shares. If two people buy a home, each owns 50%. If four people buy, each owns 25%. The defining feature is the **right of survivorship**—if one owner dies, their share automatically transfers to the surviving owners.
+
+**Best for:** Close family members or partners who want ownership to pass directly to co-owners.
+
+**Drawbacks:** You can't own unequal shares, and you can't leave your share to someone outside the ownership group.
+
+### Tenancy in Common
+
+Tenancy in common allows flexible ownership percentages. If one person contributes 60% of the down payment, they can own 60% of the property. Each owner can sell or transfer their share independently and leave it to anyone in their will.
+
+**Best for:** Friends or family members with unequal financial contributions who want flexibility.
+
+**Drawbacks:** No automatic transfer on death—shares go through probate unless specified in a will.
+
+| Feature | Joint Tenancy | Tenancy in Common |
+|---------|---------------|-------------------|
+| Ownership shares | Equal only | Can be unequal |
+| Right of survivorship | Yes | No |
+| Can sell share independently | No (breaks tenancy) | Yes |
+| Estate planning flexibility | Limited | Full control |
+
+Most co-buyers who aren't married choose **tenancy in common** for its flexibility. But regardless of structure, you'll need a co-ownership agreement.
+
+---
+
+## The Co-Ownership Agreement: Your Most Important Document
+
+A co-ownership agreement is a legally binding contract that spells out the rules of your partnership. Think of it as a prenup for property. It should cover:
+
+### Financial Responsibilities
+
+- How the down payment is split
+- Who pays what percentage of the mortgage each month
+- How property taxes, insurance, and HOA fees are divided
+- Who covers maintenance and how repairs are approved
+- What happens if someone can't make their payment
+
+### Use and Living Arrangements
+
+- Who lives in the property (all owners, or just some?)
+- Rules for guests, subletting, or renting out portions
+- How shared spaces are managed
+- Pet policies and lifestyle expectations
+
+### Exit Strategies
+
+- How to value the property if someone wants out
+- First right of refusal for remaining owners
+- Process for selling the entire property
+- What happens if someone dies, divorces, or goes bankrupt
+
+### Dispute Resolution
+
+- How disagreements are handled (mediation, arbitration, or court)
+- Voting rights for major decisions
+- Process for buyouts
+
+> A good co-ownership agreement prevents friendships from becoming lawsuits. Hire a real estate attorney to draft one before you close.
+
+---
+
+## Getting a Joint Mortgage
+
+When you co-buy, all owners typically go on the mortgage. Lenders will evaluate everyone's credit scores, income, and debt-to-income ratios.
+
+### How Lenders Evaluate Co-Borrowers
+
+Lenders usually use the **lowest** credit score among borrowers to determine your rate. If you have a 780 score but your co-buyer has a 620, you'll get pricing based on 620.
+
+However, income is combined. If you earn $70,000 and your co-buyer earns $60,000, lenders see $130,000 in qualifying income. This can dramatically improve how much house you can afford—use our [rent vs. buy calculator](/) to see how different price points affect your finances.
+
+### Mortgage Options for Co-Buyers
+
+**Conventional loans:** Most common for co-buyers. All borrowers must meet credit and income requirements.
+
+**FHA loans:** Allow multiple borrowers, but at least one must occupy the property as their primary residence. The 3.5% down payment makes this popular for first-time co-buyers.
+
+**Non-occupant co-borrowers:** Some loans allow a parent or family member to co-sign without living in the home. This can help with qualification but has its own risks.
+
+### What If One Person Has Bad Credit?
+
+You have options:
+
+- **Leave them off the mortgage** (but they may still be on title)
+- **Wait and rebuild credit** before buying
+- **Use a non-QM lender** with more flexible criteria (higher rates)
+
+Keep in mind: if someone is on the title but not the mortgage, they own a share of the home but aren't legally responsible for payments. This can create complications.
+
+---
+
+## Hidden Costs and Financial Planning
+
+Co-buying reduces individual costs, but the total expenses remain the same. Make sure everyone understands the full picture. Check out our guide on [hidden costs of homeownership](/blog/hidden-costs-of-homeownership) for details on what to expect beyond the mortgage.
+
+### Ongoing Costs to Split
+
+| Cost | Typical Annual Amount | Notes |
+|------|----------------------|-------|
+| Property taxes | 0.5%-2.5% of value | Varies by location |
+| Homeowners insurance | $1,500-$3,000 | Higher in disaster-prone areas |
+| Maintenance | 1%-2% of value | Budget for this from day one |
+| HOA fees | $0-$500/month | If applicable |
+| Utilities | $200-$400/month | May need to split fairly |
+
+### Create a Joint Account
+
+Many co-buyers open a joint checking account for housing expenses. Each person contributes their share monthly, and all bills are paid from that account. This creates transparency and a clear paper trail.
+
+### Build a Reserve Fund
+
+Set aside 3-6 months of housing expenses in a shared emergency fund. If someone loses their job or faces an emergency, the group can cover payments while figuring out next steps.
+
+---
+
+## Exit Strategies: Plan for the End from the Start
+
+Relationships change. Jobs relocate. Life happens. The best co-buying arrangements plan for exits before anyone wants to leave.
+
+### When Someone Wants Out
+
+Your agreement should specify:
+
+1. **Notice period** — 60-90 days is common
+2. **Property valuation** — Appraisal by licensed appraiser, or average of two appraisals
+3. **Right of first refusal** — Remaining owners can buy out the departing owner before they sell to outsiders
+4. **Buyout terms** — Payment timeline, financing options
+5. **What if no one can buy out** — Forced sale provisions
+
+### Refinancing to Remove an Owner
+
+If remaining owners want to keep the property, they'll typically need to refinance. This removes the departing owner from the mortgage and creates a new loan in just the remaining owners' names. The departing owner gets their equity share at closing.
+
+### Selling the Property
+
+If everyone agrees to sell, proceeds are split according to ownership percentages. But what if owners disagree? Your agreement should specify:
+
+- What percentage of owners must agree to sell (majority, supermajority, unanimous?)
+- Mediation process for disputes
+- Partition action as a last resort (forcing a court-ordered sale)
+
+---
+
+## Potential Pitfalls and How to Avoid Them
+
+Co-buying can go wrong. Here are the most common issues and how to prevent them:
+
+### Pitfall 1: No Written Agreement
+
+**The problem:** Without a contract, you're relying on verbal agreements and good intentions. When disputes arise, there's no reference point.
+
+**The fix:** Always get a co-ownership agreement drafted by a real estate attorney before closing.
+
+### Pitfall 2: Mismatched Expectations
+
+**The problem:** One owner wants to renovate and increase value; another wants to minimize costs. One wants to sell in 3 years; another wants to stay for 10.
+
+**The fix:** Have detailed conversations about goals, timelines, and expectations before buying. Document everything in your agreement.
+
+### Pitfall 3: Unequal Contributions Without Documentation
+
+**The problem:** One person pays more of the down payment but takes equal ownership. When selling, they feel cheated.
+
+**The fix:** Use tenancy in common with ownership percentages that reflect contributions. Or, document loans between owners separately.
+
+### Pitfall 4: No Plan for Relationship Changes
+
+**The problem:** Friends have a falling out. Siblings stop speaking. The property becomes a battleground.
+
+**The fix:** Include dispute resolution mechanisms and clear buyout procedures. Assume relationships may change.
+
+### Pitfall 5: Credit and Financial Entanglement
+
+**The problem:** All borrowers are jointly liable for the mortgage. If one person stops paying, everyone's credit suffers—and the lender can pursue any borrower for the full amount.
+
+**The fix:** Only co-buy with people you deeply trust. Maintain open financial communication. Have a plan B if someone can't pay.
+
+For more on avoiding costly mistakes, read our guide to [first-time homebuyer mistakes](/blog/first-time-homebuyer-mistakes).
+
+---
+
+## Is Co-Buying Right for You?
+
+Co-buying makes sense when:
+
+- You can't afford to buy alone but have trusted friends or family in the same situation
+- Everyone has stable income and good financial habits
+- You've discussed goals, timelines, and exit strategies openly
+- You're willing to create a formal legal agreement
+- You understand that co-ownership is a business partnership, not just splitting rent
+
+Co-buying might not be right if:
+
+- You have very different financial situations or risk tolerances
+- Anyone is uncomfortable with formal agreements
+- You haven't known each other long or haven't lived together
+- You can't agree on basic terms before buying
+
+---
+
+## Next Steps to Co-Buy a Home
+
+Ready to explore co-buying? Here's your action plan:
+
+1. **Have the money talk** — Discuss credit scores, savings, income, and debts openly with potential co-buyers
+2. **Align on goals** — How long do you plan to own? What's the budget? Who will live there?
+3. **Get pre-approved together** — See what you qualify for as a group
+4. **Hire a real estate attorney** — Draft a co-ownership agreement before you start shopping
+5. **Run the numbers** — Use our [rent vs. buy calculator](/) to see if co-buying makes financial sense compared to renting
+6. **Find a co-buyer-friendly agent** — Work with someone experienced in multi-party purchases
+
+Co-buying isn't for everyone, but for the right group, it's a legitimate path to building wealth through homeownership. The key is treating it like the serious financial partnership it is—with clear agreements, open communication, and realistic expectations.
+
+Not sure if buying makes sense at all? Our [complete guide to renting vs. buying](/guide) breaks down all the factors to consider.
+    `.trim(),
+  },
+  {
     slug: 'assumable-mortgage-guide-2026',
     title: 'Assumable Mortgages in 2026: How to Get a Sub-3% Rate',
     description: 'Learn how to assume an FHA or VA loan and lock in rates under 3% in 2026. Save $750+/month by taking over someone else\'s low-rate mortgage.',
